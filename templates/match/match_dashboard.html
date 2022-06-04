@@ -1,0 +1,64 @@
+{% extends 'main/main.html' %}
+
+
+{% block content %}
+<br>
+<h1>Match Dashboard</h1>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="{% url 'create_match' %}">Create Match</a>
+            <h4>Match Creation</h4>
+        </div>
+        <div class=" card card-body">
+            <table class="overflow-x:auto">
+                <tr class >
+                    <th>Match Date</th>
+                    <th>Details</th>
+                    <th>Venue</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                
+                {% for match in matches %}
+                    <tr>
+                        <td>{{match.match_date}}</td>
+                        <td>{{match.match_details}}</td>
+                        <td>{{match.venue}}</td>   
+                        <td><a href="{% url 'update_match' match.id %}">Update</a></td>
+                        <td><a href="{% url 'delete_match' match.id %}">Delete</a></td>
+                    <tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="{% url 'create_squad' %}">Blank</a>
+            <h4>Squad Selection</h4>
+        </div>
+        <div class=" card card-body">
+            <table class="overflow-x:auto">
+                <tr class >
+                    <th>Match Date</th>
+                    <th>Match Details</th>
+                    <th>Squad Update</th>
+                  
+                </tr>
+                
+                {% for match in matches %}
+                <tr>
+                    <td>{{match.match_date}}</td>
+                    <td>{{match.match_details}}</td>
+                    <td><a href="{% url 'add_player_to_match' match.id %}">Squad Update</a></td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

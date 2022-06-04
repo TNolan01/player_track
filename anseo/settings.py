@@ -44,6 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'tracker',
+    'crispy_forms',
+    # 'bootstrap4',
+    'bootstrap_datepicker_plus'
+    
 ]
 
 MIDDLEWARE = [
@@ -90,6 +94,7 @@ WSGI_APPLICATION = 'anseo.wsgi.application'
  
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    
 }
 
 # Password validation
@@ -140,3 +145,5 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

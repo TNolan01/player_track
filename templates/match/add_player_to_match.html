@@ -1,0 +1,29 @@
+{% extends 'main/main.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+			
+			<form action="" method="POST" enctype="multipart/form-data">
+				{% csrf_token %}			
+				{{ formset.management_form }}
+				{% for form in formset %}
+			{% crispy formset %}
+			{% comment %} 	{{ form | crispy}}    {% endcomment %}
+   
+				{% endfor %}
+
+
+
+				<input type="submit" name="Create">
+			
+			 </form>
+		
+		
+	</div>
+</div>
+
+{% endblock %}
