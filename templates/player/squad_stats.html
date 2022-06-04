@@ -1,0 +1,30 @@
+{% extends 'main/main.html' %}
+{% load mathfilters %}
+
+{% block content %}
+{% load mathfilters %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+
+    <tr>
+        
+        {% for item in session_total %}
+        <td>{{ item.name }}</td> 
+        <td>{{ item.count_sessions }}</td> 
+        <td>{{ item.count_sessions|mul:100 |div:st }}</td> <br>
+        <td>{{ item.calc }}</td>
+       
+        
+        
+        {% endfor %}
+     
+    </tr>
+   
+   
+
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'main/main.html' %}
+
+
+{% block content %}
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-blue  mb-3" id="session_total">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Sessions</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{session_total}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-blue  mb-3" id="training_total">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Attended Sessions</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{training_total}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-blue  mb-3" id="attendance">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Attendance Percentage</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{attendance}}%</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+ <h2>{{player.name}}</h2>
+
+<div class=" card card-body">
+    <table class="overflow-x:auto">
+        <tr class >
+            <th>Session Date</th>
+            <th>Session Details</th>
+        </tr>
+        
+        {% for t in training %}
+        <tr>
+            <td>{{ t.session_date }}</td> 
+            <td>{{ t.session_name }}</td>
+			<br>
+        <tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

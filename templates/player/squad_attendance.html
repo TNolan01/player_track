@@ -1,0 +1,63 @@
+{% extends 'main/main.html' %}
+
+
+{% block content %}
+
+ 
+
+<div>
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-blue  mb-3" id="training_total">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Attended Sessions</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title"></h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-blue  mb-3" id="attendance">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Players</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title" id="player">{{ players }}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class=" card card-body">
+    <table class="overflow-x:auto">
+        <tr class >
+			<th>Player</th>
+            <th>Sessions Attended</th>
+			<th>Total Sessions </th>
+            <th>Attendance Percentage</th>
+        </tr>
+		
+        {% for p  in session_total %}
+        <tr>
+			<td>{{ p.name }} </td>
+			<td class="attended_sessions">{{ p.count_sessions }}</td>
+			<td class="total_sessions">{{ st }}</td>
+			<td> <span class = "result">0</span></td>
+			
+				
+		<tr>
+		{% endfor %}
+		
+    </table>
+</div>
+
+
+
+
+
+{% endblock %}

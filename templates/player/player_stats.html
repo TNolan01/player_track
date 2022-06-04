@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-blue  mb-3" id="all_players">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Players</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<table class="overflow-x:auto">
+						<tr class >
+							<th>Player</th>
+							<th>Contact</th>
+							<th>Date of Birth</th>
+							
+							<th>Attendance</th>
+						</tr>
+						
+						{% for player in training %}
+							<tr>
+								<td>{{player.name}}</td>
+								<td>{{player.session_date}}</td>
+								<td>{{player.session_total}}</td>
+								
+							<tr>
+						{% endfor %}
+					</table>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	
+</div>
