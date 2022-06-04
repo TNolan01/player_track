@@ -24,3 +24,4 @@ function traffic_light() {
         }
     console.log(num1);
     }
+}
