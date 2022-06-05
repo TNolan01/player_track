@@ -73,7 +73,7 @@ def player_dashboard(request):
     session_total = Player.objects.values('name').annotate(count_sessions=Count('session'))
     training = Session.objects.all()
     all_sessions = Session.objects.all().count()
-    players = Player.objects.all()
+    players = Player.objects.all().order_by('name')
     training_total = Session.objects.all().count()
     context  = {'training': training,
                 'session_total': session_total,

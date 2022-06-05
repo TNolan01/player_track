@@ -27,14 +27,15 @@ class SessionForm(forms.ModelForm):
         model = Session
         fields = ['session_date','session_name','player']
     
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper()
-       
-    widgets = {
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.helper = FormHelper()
+    
+        widgets = {
         'session_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-        'session_name': forms.Textarea(attrs={'class': 'form-control'})
-    }
+        # 'session_date': DateTimePickerInput(format='DD/MM/YYYY'),
+        'session_name': forms.Textarea(attrs={'class': 'form-control', 'rows':'4', 'cols':'50'})
+        }
      
     player = CustomMMCF(
         queryset=Player.objects.all(),
@@ -47,7 +48,7 @@ class MatchForm(forms.ModelForm):
         model = Match
         fields = ['match_date','match_details','venue']
         widgets = {
-             'match_date': DatePickerInput()
+             'match_date': DateTimePickerInput()
         }
         
         

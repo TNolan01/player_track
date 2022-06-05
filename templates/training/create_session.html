@@ -1,17 +1,43 @@
 {% extends 'main/main.html' %}
 
+{% comment %} {% load crispy_forms_tags %}
 
 {% block content %}
 <br>
-
+<div class="container">
 <form method="POST" action="">
     {% csrf_token %}
-{{ form }}
+    {% crispy form %}
 
-
+   
 <input type="submit" name="Create">
+<input type="submit" class="btn btn-info"> 
 
 </form>
+</div>
+
+{% endblock %}  {% endcomment %}
 
 
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{{ form.media }}
+
+{% block content %}
+
+<br>
+<div class="container">
+<div class="form-group">
+<form method="POST" action="">
+   
+{% csrf_token %}
+{{ form.media }}
+{% bootstrap_form form %}  
+   
+<input type="submit" class="btn btn-info"> 
+   
+</form>
+</div>
+</div>
 {% endblock %}

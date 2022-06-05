@@ -5,23 +5,23 @@ function calc() {
     var num2 = document.getElementsByClassName("total_sessions")[i].innerHTML;
     var num3 = (parseInt(num1)*100) / parseInt(num2);
     document.getElementsByClassName("result")[i].innerHTML = num3.toFixed(0);
-}
+    }  
 }
 
 
 function traffic_light() {
     var total = document.getElementById("player").innerHTML;
     for (let i = 0; i <=total; i++) {
-        num1 = document.getElementsByClassName("result")[i].innerHTML;
-        if (num1 = 'NaN'){ 
-            document.getElementsByClassName('traffic_light')[i].style.backgroundColor ='#EA160C';} 
+        var num1 = document.getElementsByClassName("result")[i].innerHTML;
+        if (num1 <=10 ){ 
+            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FCFF33'} 
         else if (num1 <= 40){
-            document.getElementsByClassName('traffic_light')[i].style.backgroundColor ='#EA160C';}
+            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#EA160C'}
         else if (num1 > 40 && num1 <=70){
-            document.getElementsByClassName('traffic_light')[i].style.backgroundColor ='#EA850C'}
+            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#EA850C'}
         else {
-            document.getElementsByClassName('traffic_light')[i].style.backgroundColor ='#26A916';   
+            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#26A916'  
         }
-    console.log(num1);
+    console.log(num1)
     }
 }
