@@ -14,14 +14,14 @@ function traffic_light() {
     for (let i = 0; i <=total; i++) {
         var num1 = document.getElementsByClassName("result")[i].innerHTML;
         if (num1 <=10 ){ 
-            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FCFF33'} 
-        else if (num1 <= 40){
-            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#EA160C'}
-        else if (num1 > 40 && num1 <=70){
-            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#EA850C'}
+            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FF0000'} 
+        else if (num1 >=11 && num1 <= 50){
+            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FFFF22'}
+        else if (num1 >= 51 && num1 <=80){
+            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FFA500'}
         else {
             document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#26A916'  
         }
-    console.log(num1)
+   
     }
 }

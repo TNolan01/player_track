@@ -1,0 +1,15 @@
+{% extends 'main/main.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+    <form method="post">
+        {% for formset in inlines %}
+          {{ formset }}
+        {% endfor %}
+    
+        <input type="submit" value="Submit" />
+      </form>
+</div>
+{% endblock %}

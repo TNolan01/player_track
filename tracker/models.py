@@ -46,7 +46,7 @@ class Match(models.Model):
     
     match_date = models.DateField(null=True)
     match_details = models.CharField(max_length=200, null=True)
-    venue = models.CharField(max_length=5, choices=VENUE, unique=True)
+    venue = models.CharField(max_length=5, choices=VENUE, unique=False)
     
     
     def __str__(self):
@@ -62,12 +62,15 @@ class Team_Selection(models.Model):
         ('Starting', 'Starting'),
         ('Sub', 'Sub')
         ]
-     
+    JERSEY = [(1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10),(11,11),(12,12),(13,13),(14,14),(15,15),(16,16),(17,17),(18,18),(19,19),(20,20),(21,21),(22,22),(23,23),(24,24),(25,25)]
+   
+    # JERSEY = [('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'),('8','8'),('9','9'),('10','10'),('11','11'),('12','12'),('13','13'),('14','14'),('15','15'),('16','16'),('17','17'),('18','18'),('19','19'),('20','20'),('21','21'),('22','22'),('23','23'),('24','24'),('25','25')]
+   
     match = models.ForeignKey(Match, on_delete=models.CASCADE, null=True)
-    player = models.ManyToManyField(Player)
-    jersey_number = models.IntegerField(null=True, unique=True)
-    game_status = models.CharField(max_length=10, choices=STATUS)
-    goals = models.IntegerField(null=True)
-    points = models.IntegerField(null=True)
-    notes  = models.CharField(max_length=50)
+    player = models.ManyToManyField(Player, blank=True)
+    jersey_number = models.IntegerField(choices=JERSEY, null=True, blank=True)
+    game_status = models.CharField(max_length=10, choices=STATUS, blank=True)
+    goals = models.IntegerField(null=True, blank=True)
+    points = models.IntegerField(null=True, blank=True)
+    notes  = models.CharField(max_length=50, null=True, blank=True)
 

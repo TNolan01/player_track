@@ -1,6 +1,3 @@
-from django.shortcuts import render
-
-
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.forms import inlineformset_factory, formset_factory, modelformset_factory
 from .forms import *
@@ -13,6 +10,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.list import ListView
 from django.views.generic import DetailView
 from django.db.models import Count
+from extra_views import CreateWithInlinesView, UpdateWithInlinesView, InlineFormSetFactory
 
 
 
@@ -198,7 +196,7 @@ class MatchDeleteView(DeleteView):
   
     
 def add_player_to_match(request, pk):
-    GameFormSet = inlineformset_factory(Match, Team_Selection, fields=('player','jersey_number','game_status','goals','points','notes'))
+    GameFormSet = inlineformset_factory(Match, Team_Selection, form = Team_SelectionForm)
     match = Match.objects.get(id=pk)
     player = Player.objects.all()
     formset = GameFormSet(instance=match)
@@ -208,13 +206,14 @@ def add_player_to_match(request, pk):
             formset.save()
             return redirect('/')
     context = {'formset':formset,
-               'player':player}
+               'player':player,
+               'match': match
+            }
     return render(request, 'match/add_player_to_match.html', context)
 
 
-class SquadCreateView(CreateView):
-    model = Team_Selection
-    form_class = Team_SelectionForm
-    template_name = 'match/create_squad.html'
-    success_url = reverse_lazy('match_dashboard')
+# Test Views for Match functions
+
+
+
     

@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'tracker',
     'crispy_forms',
     'bootstrap4',
-    'bootstrap_datepicker_plus'
+    'bootstrap_datepicker_plus',
+    'extra_views',
     
 ]
 
@@ -125,10 +126,11 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+# USE_L10N = True
 
 USE_TZ = True
 
+USE_L10N = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

@@ -4,23 +4,24 @@
 
 {% block content %}
 <div class="row">
-	<div class="col-md-6">
 		<div class="card card-body">
 			
 			<form action="" method="POST" enctype="multipart/form-data">
-				{% csrf_token %}			
-				{{ formset.management_form }}
+				{% csrf_token %}		
+				{{ formset.management_form }} 
 				{% for form in formset %}
-			{% crispy formset %}
+        		{{ form }}
+        <hr>
+        
 			{% comment %} 	{{ form | crispy}}    {% endcomment %}
    
 				{% endfor %}
 
 
-
-				<input type="submit" name="Create">
+        <hr>
+        <button class="btn btn-light text-color-dark" type="submit"><strong>Submit</strong></button>
 			
-			 </form>
+			</form>
 		
 		
 	</div>
