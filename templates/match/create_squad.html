@@ -3,15 +3,18 @@
 
 {% block content %}
 <br>
+<form method="post">{% csrf_token %}
+    {{ formset.management_form }}
+    <table>
+      {% for form in formset %}
+         <tr>
+             <td>{{form.player}} {{ form.jersey_number }}  {{form.game_status}} </td>
+             
+       </tr>
+      {% endfor %}
+    </table>
 
-<form method="POST" action="">
-    {% csrf_token %}
-{{ form.as_p }}
-
-
-<input type="submit" class="btn btn-info"> 
-
+    <button type="submit" name="save" >Save</button>
 </form>
-
 
 {% endblock %}

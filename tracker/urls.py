@@ -20,11 +20,11 @@ urlpatterns = [
     path('player/squad_attendance',views.squad_attendance, name='squad_attendance'),
     path('player/squad_stats', views.SquadStats.as_view(), name='squad_stats'),
     path('match/match_dashboard', views.match_dashboard, name='match_dashboard'),
-    # path('training/create_squad',views.SquadCreateView.as_view(), name='create_squad'),
+    # path('training/create_squad/<int:pk>',views.CreateSquadView.as_view(), name='create_squad'),
     path('match/add_player_to_match/<int:pk>',views.add_player_to_match, name='add_player_to_match'),
     path('training/create_match',views.MatchCreateView.as_view(), name='create_match'),
     path('match/update_match/<int:pk>',views.MatchUpdateView.as_view(), name='update_match'),
     path('match/delete_match/<int:pk>',views.MatchDeleteView.as_view(), name='delete_match'),
-    # path('match/match_squad',views.CreateMatchView.as_view(), name='match_squad'),    
-    
+        
+    # path('match/add_player_to_match/<int:pk>',views.SquadEditView.as_view(), name='add_player_to_match'),
     ]
