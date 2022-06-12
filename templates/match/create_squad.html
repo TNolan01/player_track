@@ -1,20 +1,38 @@
 {% extends 'main/main.html' %}
-
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
 
 {% block content %}
-<br>
-<form method="post">{% csrf_token %}
-    {{ formset.management_form }}
-    <table>
-      {% for form in formset %}
-         <tr>
-             <td>{{form.player}} {{ form.jersey_number }}  {{form.game_status}} </td>
-             
-       </tr>
-      {% endfor %}
-    </table>
 
-    <button type="submit" name="save" >Save</button>
-</form>
+		<div class="container">
+			{% for message in messages %}
+			<p>{{message}}</p>
+		    {% endfor %}
+			
 
-{% endblock %}
+			<form action="" method="POST">
+				{% csrf_token %}
+				{{ formset.management_form }}
+				{% for form in formset %}
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+				<select id="players" name="ddplayers" class="form-select form-select-sm" aria-label=".form-select-sm example">
+						<option selected>Open this select menu</option>
+						{% for player in players %}
+						<option value="{{ player.id}}">{{ player.name}}</option>
+						{% endfor %}
+				</select>
+
+
+				
+				
+				
+				
+				{% endfor %} 
+
+
+
+{% endblock %} 

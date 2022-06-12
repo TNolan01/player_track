@@ -13,6 +13,8 @@ from django.db.models import Count
 from extra_views import CreateWithInlinesView, UpdateWithInlinesView, InlineFormSetFactory
 from django.views.generic.detail import SingleObjectMixin
 from django.views.generic.edit import FormView
+from django.contrib.messages.views import SuccessMessageMixin
+
 
 
 
@@ -196,30 +198,64 @@ class MatchDeleteView(DeleteView):
     template_name = 'match/delete_match.html'
     success_url = reverse_lazy('match_dashboard')
   
-    
-# Test Views for Match functions
+  #Working  
+# def add_player_to_match(request, pk):
+#     SquadFormSet = inlineformset_factory(Match, Team_Selection, fields=('player','jersey_number','game_status'), max_num=25)
+#     match = Match.objects.get(id=pk)
+#     queryset1 = Team_Selection.objects.all().filter(match=match).order_by('player')
+#     formset = SquadFormSet(instance=match)
+#     if request.method == 'POST':
+#         formset = SquadFormSet(request.POST, instance=match)
+#         if formset.is_valid():
+#             for form in formset:
+#                 cleaned_data = form.cleaned_data
+#                 player = cleaned_data.get('player')
+#                 jersey_number = cleaned_data.get('jersey_number')
+#                 game_status = cleaned_data.get('game_status')
+#                 formset.save()
+#             return redirect('match_dashboard')
+#         else:
+#             print(formset.errors) 
+#             messages.warning(request,'Error creating formset')
+#     context = {'formset':formset,
+#                'match': match
+#             }
+#     return render(request, 'match/add_player_to_match.html', context) 
 
 
-    
 def add_player_to_match(request, pk):
-    SquadFormSet = inlineformset_factory(Match, Team_Selection, fields=('player','jersey_number','game_status'), max_num=25)
+    SquadFormSet = inlineformset_factory(Match, Team_Selection, form=SquadForm, fields=('player','jersey_number','game_status'), max_num=25)
     match = Match.objects.get(id=pk)
-    queryset1 = Team_Selection.objects.all().filter(match=match).order_by('player')
+    players = Player.objects.all()
     formset = SquadFormSet(instance=match)
     if request.method == 'POST':
         formset = SquadFormSet(request.POST, instance=match)
         if formset.is_valid():
             formset.save()
             return redirect('match_dashboard')
-        else:
-            messages.warning(request,'Error creating formset')
     context = {'formset':formset,
-               'match': match
+               'match': match,
+               'players' : players
             }
     return render(request, 'match/add_player_to_match.html', context) 
 
 
-        
-       
+def create_squad(request, pk):
+    SquadFormSet = inlineformset_factory(Match, Team_Selection, form=SquadForm, fields=('player','jersey_number','game_status'), max_num=25)
+    match = Match.objects.get(id=pk)
+    players = Player.objects.all()
+    formset = SquadFormSet(instance=match)
+    if request.method == 'POST':
+        formset = SquadFormSet(request.POST, instance=match)
+        if formset.is_valid():
+            formset.save()
+            return redirect('match_dashboard')
+    context = {'formset':formset,
+               'match': match,
+               'players' : players
+            }
+    return render(request, 'match/create_squad.html', context) 
+
+
 
 

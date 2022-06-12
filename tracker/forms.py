@@ -54,36 +54,31 @@ class MatchForm(forms.ModelForm):
         
   
         
-class Team_SelectionForm(forms.ModelForm):
+class SquadForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
-        super(Team_SelectionForm, self).__init__(*args, **kwargs)
-        self.fields['notes'].initial = 'Notes'
-        self.fields['points'].initial = '0'
-        self.fields['goals'].initial = '0'
+        super(SquadForm, self).__init__(*args, **kwargs)
+        # self.fields['notes'].initial = 'Notes'
+        # self.fields['points'].initial = '0'
+        # self.fields['goals'].initial = '0'
         self.fields['game_status'].initial = 0
         self.fields['jersey_number'].initial = 0
         
-
-    
+ 
     class Meta:
         model = Team_Selection
-        fields = ['match', 'player', 'jersey_number', 'game_status', 'goals', 'points', 'notes']
-        Labels = {
-        'player' : '',
-        'jersey_number': '',
-        'game_status' : '',
-        'goals' :  '',
-        'points' : '',
-        'notes' : ''
-        }
+        fields = ['match', 'player', 'jersey_number', 'game_status']
         
-        # widgets = {
+        widgets = {
         # 'player' : forms.Select(attrs={'class': 'form-control', 'placeholder':'Player', 'required':False}),
-        # 'jersey_number': forms.Select(attrs={'class': 'form-control','placeholder':'Jersey','required':False}),
-        # 'game_status' : forms.Select(attrs={'class': 'form-control', 'placeholder':'Status','required':False}), 
+        'jersey_number': forms.Select(attrs={'class': 'form-control','required':False}),
+        'game_status' : forms.Select(attrs={'class': 'form-control','required':False}), 
         # 'goals' : forms.NumberInput(attrs={'class': 'form-control','placeholder':'Goals', 'blank' : 'True'}),
         # 'points' : forms.NumberInput(attrs={'class': 'form-control','placeholder':'Points','required':False}),
         # 'notes' : forms.Textarea(attrs={'class': 'form-control','placeholder':'Notes','required':False})
-        # }
-    
+        }
+
+        player = CustomMMCF(
+        queryset=Player.objects.all(),
+        widget=forms.Select(attrs={'class': 'form-control' })
+        )

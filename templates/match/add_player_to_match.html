@@ -1,21 +1,42 @@
 {% extends 'main/main.html' %}
 {% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
 
-{% block content %} 
- 
+{% block content %}
 
 		<div class="container">
+			{% for message in messages %}
+			<p>{{message}}</p>
+		    {% endfor %}
 			
+
 			<form action="" method="POST">
 				{% csrf_token %}
 				{{ formset.management_form }}
 				{% for form in formset %}
-					{{ form }}
-					<hr>
-					{% endfor %}
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %} 
 				
-					<input type="submit" class="btn btn-info"> 
-			</form>
+				<div class="form-row">
+					<div class= "col">
+						{{ form.player}} 
+
+					</div>
+					<div class="col">
+						{{ form.jersey_number}}
+					</div>
+					<div class="col">
+						{{ form.game_status }}
+					</div> 
+				
+						<hr>  
+					{% endfor %}
+				</div>
+				<input type="submit" class="btn btn-info"> 
+		    </form>
 		</div>
 
 {% endblock %} 
