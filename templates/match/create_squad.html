@@ -1,38 +1,44 @@
 {% extends 'main/main.html' %}
 {% load static %}
-{% load bootstrap4 %}
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 
-		<div class="container">
-			{% for message in messages %}
-			<p>{{message}}</p>
-		    {% endfor %}
-			
-
-			<form action="" method="POST">
-				{% csrf_token %}
-				{{ formset.management_form }}
-				{% for form in formset %}
-                {% for hidden in form.hidden_fields %}
-                    {{ hidden }}
-                {% endfor %}
-				<select id="players" name="ddplayers" class="form-select form-select-sm" aria-label=".form-select-sm example">
-						<option selected>Open this select menu</option>
-						{% for player in players %}
-						<option value="{{ player.id}}">{{ player.name}}</option>
-						{% endfor %}
-				</select>
-
-
-				
-				
-				
-				
-				{% endfor %} 
-
-
+		
+<div class="container">
+	{% for message in messages %}
+	<p>{{message}}</p>
+	{% endfor %}
+	
+	
+		<form action="" method="POST">
+			{% csrf_token %}
+			{{ formset.management_form }}
+			{% for form in formset %} 
+			{% for hidden in form.hidden_fields %}
+				{{ hidden }}
+			{% endfor %}
+			{% comment %} {{form|crispy}}  {% endcomment %}
+			<div class="container">
+				<div class="row" >
+					<div class="col-6 mb-0">
+					
+							{{ form.player|as_crispy_field }} 
+						
+							
+					</div>
+					<div class="col-4 mb-0">
+					{{ form.game_status|as_crispy_field }}
+					</div>
+					<div class="col-2 mb-0">
+					{{ form.jersey_number|as_crispy_field }}
+					</div>
+				</div>
+			</div>
+			<hr>
+			{% endfor %} 
+			<input type="submit" class="btn btn-info"> 
+		</form>
+		
+</div>
 
 {% endblock %} 

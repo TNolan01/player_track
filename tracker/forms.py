@@ -55,30 +55,25 @@ class MatchForm(forms.ModelForm):
   
         
 class SquadForm(forms.ModelForm):
-    
-    def __init__(self, *args, **kwargs):
-        super(SquadForm, self).__init__(*args, **kwargs)
-        # self.fields['notes'].initial = 'Notes'
-        # self.fields['points'].initial = '0'
-        # self.fields['goals'].initial = '0'
-        self.fields['game_status'].initial = 0
-        self.fields['jersey_number'].initial = 0
-        
- 
     class Meta:
         model = Team_Selection
         fields = ['match', 'player', 'jersey_number', 'game_status']
         
         widgets = {
-        # 'player' : forms.Select(attrs={'class': 'form-control', 'placeholder':'Player', 'required':False}),
-        'jersey_number': forms.Select(attrs={'class': 'form-control','required':False}),
+        'jersey_number': forms.Select(attrs={'class': 'form-control','required':False, 'placeholder':'Jersey'}),
         'game_status' : forms.Select(attrs={'class': 'form-control','required':False}), 
-        # 'goals' : forms.NumberInput(attrs={'class': 'form-control','placeholder':'Goals', 'blank' : 'True'}),
-        # 'points' : forms.NumberInput(attrs={'class': 'form-control','placeholder':'Points','required':False}),
-        # 'notes' : forms.Textarea(attrs={'class': 'form-control','placeholder':'Notes','required':False})
         }
 
         player = CustomMMCF(
         queryset=Player.objects.all(),
-        widget=forms.Select(attrs={'class': 'form-control' })
+        widget=forms.Select(attrs={'class': 'form-select' })
         )
+
+
+class CreateSquad(forms.ModelForm):
+    class Meta:
+        fields = ['match', 'player', 'jersey_number', 'game_status']
+
+    def __init__(self, *args, **kwargs):
+        super(CreateSquad, self).__init__(*args, **kwargs)
+        self.fields['player'].widget.attrs['class'] = 'form-select'

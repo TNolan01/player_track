@@ -1,108 +1,344 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome TNolan01,
-
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
+# Anseo
+​
+[Anseo](link-to-website) is a web based application which allows managers and coaches of to track the attendance of their players at training and for matches. The application is primarily designed for underage and amateur sports. 
+​
+![Site display on different screens](am-i-responsive-image)
+​
 ---
+​
+## Contents
+​
+- [Anseo](#gift-of-giving)
+  - [Contents](#contents)
+  - [UX](#ux)
+    - [Project Goals](#project-goals)
+    - [Site Owner Goals](#site-owner-goals)
+    - [Site Visitor/User Goals](#site-visitoruser-goals)
+    - [User Stories](#user-stories)
+    - [User Requirements and Expectations](#user-requirements-and-expectations)
+      - [**Requirements**](#requirements)
+      - [**Expectations**](#expectations)
+    - [Design Choices](#design-choices)
+      - [**Fonts**](#fonts)
+      - [**Colours**](#colours)
+  - [Wireframes](#wireframes)
+    - [**Site Layout**](#site-layout)
+  - [Information Architecture](#information-architecture)
+  - [Technologies](#technologies)
+    - [Languages](#languages)
+    - [Libraries & Frameworks](#libraries--frameworks)
+    - [Tools](#tools)
+  - [Features](#features)
+    - [Implemented Features](#implemented-features)
+    - [Future Features](#future-features)
+    - [Redundant features](#redundant-features)
+  - [Changes applied since planning](#changes-applied-since-planning)
+  - [Testing](#testing)
+  - [Deployment](#deployment)
+    - [Local Deployment](#local-deployment)
+    - [Deployment to Github](#deployment-to-)
+  - [Credits](#credits)
+    - [Images](#images)
+    - [Image editing](#image-editing)
+    - [Code ideas](#code-ideas)
+  - [Acknowledgements](#acknowledgements)
+​
+---
+​
+## UX
+​
+### Project Goals
+​
+The main goal of this project is to provide coaches of underage teams the ability to track the attendance of the players at training sessions. This data then gives the user a simple visual guide as to which players are regularly participating and so aid the coach/manager in portioning game time when it comes to competitive games and matches.
+​
+### Site Owner Goals
+​
+- Provide the users with a simple system, availiable to use via mobile devices.
+​
+### Site Visitor/User Goals
+​
+- Site visitors will have the ability to view the details of upcoming training sessions and match fixtures. The typical site visitor will be a parent or guardian of a child who is part of the team or a member of a team itself.
+<br>
+- Site users will have the ability to...
+    
+    <ul>
+    <li>Create, Update and Delete Players.</li>
+    <li>Create, Update and Delete Training Sessions.</li>
+    <li>Create, Update and Delete Matches.</li>
+    <li>View player attendance histories.</li>
+    <li>View records of training sessions.</li>
+    <li>View records of team selections.</li>
+    </ul>
 
-Happy coding!
+​
+### User Stories
+​
+**Applies to all site users:**
+​
+- As a user, I am able to...view upcoming training sessions and matches.
+<!--  
+​
+**Applies to new site users:**
+​
+- As a user, I am able to 
+​
+**Applies to all returning users:**
+​
+- As a user, I am able to  -->
+​
+**Applies to a superuser (site owner):**
+​
+- As a user, I am able to...
+​<br>
+[Back to content](#contents)
+​
+### User Requirements and Expectations
+​
+#### **Requirements**
+​
+- Visually pleasant app design
+- Easy site navigation
+- Information of the content layed out in a simple and clear way on both mobile and larger screens
+- Self-explanatory icons where text is absent
+​
+#### **Expectations**
+​
+- Quick app load time.
+- Easy to use interface.
+
+​<br>
+[Back to content](#contents)
+​
+### Design Choices
+​
+#### **Fonts**
+​
+- *All fonts*
+​
+  ```font-family: Baloo Bhaijaan 2', sans-serif;```
+​
+- *Special font - logo*
+​
+  ```font-family: ''Meow Script', cursive;```
+​
+#### **Colours**
+​
+![Colour palette](colour-pallette-img)
+​
+[Back to content](#contents)
+​
+## Wireframes
+​
+### **Site Layout**
+​
+Site moc-ups were designed using [figma](figma). The focus was on defining the basic layout structure of the app and identifying how displays would change on different screen sizes such as mobile, tablet and larger screens.
+​
+You can view the wireframes created for this project in [site wireframes](/docs/wireframes.pdf) folder.
+​
+  **Please note, as we were developing the project, we have identified some weaknesses in the UX and therefore made the required changes. The deployed site looks somewhat different in comparison to the wireframes. These changes will allow the user to have a better experience and allow easier navigation. The design theme of the features is a close match to the overall site to ensure continuation and flow.*
+​
+[Back to content](#contents)
+​
+---
+​
+## Information Architecture
+​
+​
+[Back to content](#contents)
+​
+---  
+​
+## Technologies
+​
+### Languages
+​
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Python](https://www.python.org/)
+​
+### Libraries & Frameworks
+​
+- [Django](https://www.djangoproject.com/)
+- [jQuery](https://jquery.com/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Google fonts](https://fonts.google.com/)
+- [Font-Awesome](https://fontawesome.com/icons?d=gallery)
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+​
+### Tools
+​
+- [Git](https://git-scm.com/)
+- [GitHub](https://github.com/)
+- [Heroku](https://www.heroku.com/)
+<!-- - [Visual Studio Code](https://code.visualstudio.com/)
+- [Color editor](https://coolors.co/)
+- [Favicons](https://fontawesome.com/icons?d=gallery)
+​ -->
+[Back to content](#contents)
+​
+---
+​
+## Features
+​
+The appliaction is uses a PostgreSQL database which contains the purpose designed models.
+​
+The site uses the Django and Bootstrap 
+
+### Implemented Features
+​
+- The site has **responsive design** when viewed on a mobile, tablet, and desktop.
+- **Easy navigation** to external sites, such as social media accounts.
+- The user is given feedback when they interact with the website (i.e. login to the website, add new gift, commit to buying a gift etc).
+​
+[Back to content](#contents)
+​
+---
+​
+## Changes applied since planning
+​
+---
+​
+## Testing
+​
+## Functional Testing
+​
+TC001 
+​
+**Description**
+​
+Test something.
+​
+**Steps**
+​
+- Navigate to https://website
+- 
+​
+**Expected**
+​
+This happened
+​
+**Actual**
+​
+This happened
+​
+![TC001](img-of-test)
+​
+<hr>
+​
+TC002
+​
+​
+## Validator Testing
+​
+### CSS
+​
+Base Css
+​
+![Base CSS](docs/testing/base_css.JPG)
+​
+### JavaScript
+​
+Base JS
+​
+![Base JS](docs/testing/base_js.JPG)
+​
+### HTML
+​
+The following Validated with no errors:
+- Home Page
+- 
+​
+![Success](docs/testing/html_validator.JPG)
+​
+The Following Validator with the same error:
+- The something page
+​
+![Error](docs/testing/edit_gift_add.JPG)
+​
+​
+[Back to content](#contents)
+​
+---
+​
+## Deployment
+​
+### Deployment:
+<br>
+
+Deployment of this project is carried out with  Heroku, https://www.heroku.com . The deployment procedure is a follows.  
+<ol>
+<li>Log in to Heroku, creating a new account if you are not a current user.</li>
+<li>Click on the 'New' button in the top right corner and from the drop-down menu select 'Create new app'.</li>
+<li>Create an App name and select your Region from menu.</li>
+<li>Click the 'Create App' button.</li>
+<li>You will now have a menu for your new app. From here click on the Settings Tab and in the Config Vars. Click Reveal Config Vars.</li>
+<br>
+<p align ="center">
+<img title="heroku" alt="screen shot of Heroku app menu" src="images/readme_images/heroku_app_menu.png"></p>
+<br>
+
+<li>You need to create Config Vars for the Google API Credentials. Enter 'CREDS' as the KEY and then copy the entire contents of the creds.json file from GITPOD in the VALUE section, click the Add button to finish.  </li>
+<li>A second Config Vars will be required. In the KEY box enter 'PORT' and in the VALUE box enter 8000 and then click the Add button.</li>
+<li>Scroll down to the Buildpacks section. Click Add buildpack. From the menu select Python and click Save Changes. </li>
+<li>Click Add buildpack again and Node.js. The Buildpacks must added in this order. If not, you can click on the packs and drag them to the correct order as shown in the image.</li>
+<br>
+<p align ="center">
+<img title="heroku" alt="screen shot of Heroku settings" src="images/readme_images/heroku.png"></p>
+<br>
+<li>Return to menu at the top of the page and click on Deploy. Select Github as the deployment method.</li>
+<li>Confirm you want to connect to GitHub using your account credentials for Git. Once Heroku has access search for the relevant repository name and click the connect button.</li>
+<li>At the bottom of the deploy page select the preferred deployment type. You can use Manual Deploy which will deploy based on the current state of the selected Git branch. You can also Enable Automatic Deploys for automatic deployment when you push updates to Github selected branch.</li>
+<br>
+
+[Back to Contents](#contents) 
+<br>
+
+### Cloning:
+
+[Click here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
+
+1. Log in to GitHub and locate the [GitHub Repository] https://github.com/TNolan01/player_track
+2. Under the repository name, click "Code".
+3. To clone the repository using HTTPS. Under "HTTPS" copy the link.
+4. Go to your local terminal with git installed
+5. Change the current working directory to the location where you want the cloned directory to be created/located.
+6. Type `git clone` and then you paste in the URL you copied in Step 3.
+
+  ```
+  $ git clone https://github.com/TNolan01/player_track
+  ```
+
+7. Press Enter. Your local clone will be created.
+<br>
+
+[Back to Contents](#contents) 
+<br>
+​
+---
+​
+## Credits
+​
+### Images
+​
+* 
+​
+### Image editing
+​
+* 
+​
+### Code ideas
+​
+* 
+​
+[Back to content](#contents)
+​
+---
+​
+## Acknowledgements
+​
+Site creators:
+​
+
+​
+[Back to content](#contents)

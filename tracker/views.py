@@ -241,21 +241,19 @@ def add_player_to_match(request, pk):
 
 
 def create_squad(request, pk):
-    SquadFormSet = inlineformset_factory(Match, Team_Selection, form=SquadForm, fields=('player','jersey_number','game_status'), max_num=25)
+    MatchFormSet = inlineformset_factory(Match, Team_Selection, form=CreateSquad, fields=('player','jersey_number','game_status'), max_num=25)
     match = Match.objects.get(id=pk)
     players = Player.objects.all()
-    formset = SquadFormSet(instance=match)
+    formset = MatchFormSet(instance=match)
     if request.method == 'POST':
-        formset = SquadFormSet(request.POST, instance=match)
+        formset = MatchFormSet(request.POST, instance=match)
         if formset.is_valid():
             formset.save()
             return redirect('match_dashboard')
     context = {'formset':formset,
                'match': match,
-               'players' : players
+               'players' : players               
             }
     return render(request, 'match/create_squad.html', context) 
-
-
 
 
