@@ -1,30 +1,31 @@
 {% extends 'main/main.html' %}
-{% load mathfilters %}
 
 {% block content %}
-{% load mathfilters %}
+
+
 
 <form method="POST" action="">
     {% csrf_token %}
-
-    <tr>
-        
-        {% for item in session_total %}
+    <div class="row">
+        <div class="card-body">
+            <h3 class="card-title" id="player">{{all_players}}</h3>
+        </div>
+    </div>
+    <hr>
+    <table class="table">
+    {% for item in session_total %}
+    <tr class="traffic_light">
         <td>{{ item.name }}</td> 
-        <td>{{ item.count_sessions }}</td> 
-        <td>{{ item.count_sessions|mul:100 |div:st }}</td> <br>
-        <td>{{ item.calc }}</td>
-       
-        
-        
-        {% endfor %}
-     
+        <td class="attended_sessions">{{ item.count_sessions }}</td> 
+        <td class="total_sessions">{{ all_sessions }}</td>
+        <td> <span class = "result">0</span></td>     
     </tr>
-   
-   
+    {% endfor %}
+    </table>
 
 
 </form>
-
+<script> window.onload = calc(); </script>
+<script> window.onload = traffic_light(); </script> 
 
 {% endblock %}

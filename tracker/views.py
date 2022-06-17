@@ -134,16 +134,21 @@ def training_list(request, pk):
 #List all players, their attendance and the attendance percentage.
 def squad_attendance(request):
     session_total = Player.objects.values('name').annotate(count_sessions=Count('session'))
+    player = Player.objects.all()
     training = Session.objects.all()
     st = Session.objects.all().count()
-    players = Player.objects.all().count
-    training_total = Session.objects.all().count()
+    all_players = Player.objects.all().count
+    training_total = Session.objects.all().filter(player=player).count()
+    if training_total == 0:
+        attendance = 'No training attended. 0'
+    else:
+        attendance = int((training_total * 100) / session_total)
     context  = {'training': training,
                 'session_total': session_total,
                 'st': st,
-                'players': players,
+                'all_players': all_players,
                 'training_total': training_total,
-                }
+                'attendance': attendance}
     return render(request,'player/squad_attendance.html', context)
 
 
@@ -159,19 +164,14 @@ class SquadStats(ListView):
     
     def get_context_data(self, **kwargs):
         context = super(SquadStats, self).get_context_data(**kwargs)
-        context ['st'] = Session.objects.all().count()
+        context ['all_sessions'] = Session.objects.all().count()
         context ['player'] = Player.objects.all()
-        context ['session_total'] = Player.objects.values('name').annotate(count_sessions=Count('session'))
-           
+        context ['session_total'] = Player.objects.values('name').annotate(count_sessions=Count('session')).order_by('-count_sessions')
+        context ['all_players'] =  all_players = Player.objects.all().count
         return context
-    
-    
-    def calc(self):
-        st = Session.objects.all().count
-        session_total = Player.objects.values('name').annotate(count_sessions=Count('session'))
-        return self(calc=([session_total.count_sessions]*100)/st)
 
-
+   
+   
 # match related views
 def match_dashboard(request):
     matches = Match.objects.all().order_by('match_date')

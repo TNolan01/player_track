@@ -3,6 +3,11 @@
 }
 
 body {
-    background-color: pink;
+    background-color: grey;
 }
 
+table {
+    width: 70%;
+    vertical-align: top;
+    text-align: center;
+}
