@@ -25,3 +25,16 @@ function traffic_light() {
    
     }
 }
+
+
+function game_name(){
+    var forms = document.querySelector("#id_team_selection_set-TOTAL_FORMS").value;
+    for (let i = 0; i <= forms; i++){
+    var target = document.getElementsByClassName("form-select selectmultiple form-control")[i];
+    var text = target.options[target.selectedIndex].text;
+    document.getElementsByClassName("player_name")[i].innerHTML = text;
+    } 
+}
+    
+    
+  

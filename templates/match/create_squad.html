@@ -17,14 +17,14 @@
 			{% for hidden in form.hidden_fields %}
 				{{ hidden }}
 			{% endfor %}
-			{% comment %} {{form|crispy}}  {% endcomment %}
+			
 			<div class="container">
+				<div class="row"><span class="player_name">Name</span></div>
 				<div class="row" >
-					<div class="col-6 mb-0">
+					<div class="col-6 mb-0" onchange="game_name()" >
 					
-							{{ form.player|as_crispy_field }} 
-						
-							
+					{{ form.player|as_crispy_field }} 
+										
 					</div>
 					<div class="col-4 mb-0">
 					{{ form.game_status|as_crispy_field }}
@@ -40,5 +40,5 @@
 		</form>
 		
 </div>
-
+<script> window.onload = game_name(); </script>
 {% endblock %} 

@@ -3,11 +3,17 @@
 }
 
 body {
-    background-color: grey;
+    /* background-color: grey; */
 }
 
 table {
     width: 70%;
     vertical-align: top;
     text-align: center;
+}
+
+.form-control{
+    height:60px;
+    line: height 45px;
+    padding:6px;
 }
