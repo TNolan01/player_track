@@ -5,59 +5,34 @@
 
 <br>
 
-<div class="row">
-    <div class="col-md">
-        <div class="card card-body">
-            <a class="btn btn-primary btn-sm btn-block" href="{% url 'create_session' %}">Create Session</a>
-            <h4>Training</h4>
-        </div>
-        <div class=" card card-body">
-            <table class="overflow-x:auto">
-                <tr class >
-                    <th>Session Date</th>
-                    <th>Session Name</th>
-                    <th>Add</th>
-                    <th>Delete</th>
-                </tr>
-                
-               {% comment %}  {% for session in sessions %}
-                    <tr>
-                        <td>{{session.session_date}}</td>
-                        <td>{{session.session_name}}</td>
-                        <td><a href="">Update Training</a></td>
-                        <td><a href="">Create Training</a></td>
-                        <td><a href="">Delete</a></td>
-                    <tr>
-                {% endfor %} {% endcomment %}
-            </table>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md">
-        <div class="card card-body">
-            <a class="btn btn-primary btn-sm btn-block" href="">Create Session</a>
-            <h4>Training</h4>
-        </div>
-        <div class=" card card-body">
-            <table class="overflow-x:auto">
-                <tr class >
-                    <th>Training Date</th>
-                    <th>Session Name</th>
-                    <th>Update</th>
-                    <th>Delete</th>
-                </tr>
-                
-               {% for training in trainings %}
-                    <tr>
-                        <td>{{training.session_date}}</td>
-                        <td>{{training.session_name}}</td>
-                        <td><a href="{% url 'update_session' training.id %}">Update</a></td>
-                        <td><a href="{% url 'delete_session' training.id %}">Delete</a></td>
-                    <tr>
-                {% endfor %} 
-            </table>
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body"> 
+                <h4>Training Dashboard</h4>
+                <a class="btn btn-primary btn-sm btn-block" href="">Create Session</a>
+           
+                <div class="table-responsive">
+                    <table style=" width:auto; margin:0 auto;">
+                        <tr>
+                            <th>Training Date</th>
+                            <th>Session Name</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        
+                        </tr>
+                        
+                    {% for training in trainings %} 
+                        <tr>
+                                <td>{{training.session_date}}</td>
+                                <td>{{training.session_name}}</td>
+                                <td><a href="{% url 'update_session' training.id %}">Update</a></td>
+                                <td><a href="{% url 'delete_session' training.id %}">Delete</a></td>
+                        </tr>
+                        {% endfor %} 
+                    </table>
+                </div>
+            </div>        
         </div>
     </div>
 </div>
