@@ -8,18 +8,18 @@
 {% block content %}
 
 <br>
-<div class="container">
-<div class="form-group">
-<form method="POST" action="">
-   
-{% csrf_token %}
-{{ form.media }}
-{% bootstrap_form form %}  
-   
-<input type="submit" class="btn btn-primary"> 
-<a href="{% url 'match_dashboard' %}" class="btn btn-danger"> Cancel </a>
-   
-</form>
-</div>
+<div class="container-fluid">
+    <div class="form-group">
+        <form method="POST" action="">
+        
+        {% csrf_token %}
+        {{ form.media }}
+        {% bootstrap_form form %}  
+        
+        <input type="submit" class="btn btn-primary"> 
+        <a href="{% url 'match_dashboard' %}" class="btn btn-danger"> Cancel </a>
+        
+        </form>
+    </div>
 </div>
 {% endblock %}

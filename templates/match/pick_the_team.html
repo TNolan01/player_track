@@ -8,27 +8,27 @@
 {% block content %}
 
 <br>
-<div class="container">
-<div class="form-group">
-  
-
-<form method="post"> 
-    {% csrf_token %}
- 
-    {{ matches }}
-
-    {% for player in squad %}
-    {{player.name}}
+<div class="container-fluid">
+    <div class="form-group">
     
-    {% endfor %}
+
+        <form method="post"> 
+            {% csrf_token %}
+        
+            {{ matches }}
+
+            {% for player in squad %}
+            {{player.name}}
+            
+            {% endfor %}
 
 
-</form>
- 
-<input type="submit" class="btn btn-primary"> 
-<a href="{% url 'match_dashboard' %}" class="btn btn-danger"> Cancel </a> 
-   
-</form>
-</div>
+        </form>
+        
+        <input type="submit" class="btn btn-primary"> 
+        <a href="{% url 'match_dashboard' %}" class="btn btn-danger"> Cancel </a> 
+        
+        </form>
+    </div>
 </div>
 {% endblock %}

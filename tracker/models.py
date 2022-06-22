@@ -56,7 +56,6 @@ class Match(models.Model):
         ordering = ('match_date',)
     
 
-
 class Team_Selection(models.Model):
     STATUS = [
         ('Starting', 'Starting'),
@@ -71,4 +70,5 @@ class Team_Selection(models.Model):
     goals = models.IntegerField(null=True, blank=True)
     points = models.IntegerField(null=True, blank=True)
     notes  = models.CharField(max_length=50, null=True, blank=True)
+
 

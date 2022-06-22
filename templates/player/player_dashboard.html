@@ -5,8 +5,9 @@
 {% include 'main/stats.html' %}
 
 <br >
-<div class="container" id="dashboardHeader"> <h2>Player Dashboard</h2> </div>
-<div class="container">
+<div class="container-fluid" id="dashboardHeader"> <h2>Player Dashboard</h2> </div>
+
+<div class="container-fluid">
     <div class="row">
         <div class="col-md">
             <div class="card card-body">
@@ -23,7 +24,7 @@
                         <th>Age</th>
                         <th>Edit</th>
                         <th>Delete</th>
-                        <th>Attendance</th>
+                        <th>Attendance</th> 
                     </tr>
                     
                     {% for player in players %}
@@ -32,9 +33,9 @@
                         <td>{{player.contact}}</td>
                         <td>{{player.date_of_birth}}</td>
                         <td>{{player.Age}}</td>
-                        <td><a href="{% url 'update_player' player.id %}">Edit</a></td>
-                        <td><a href="{% url 'delete_player' player.id %}">Delete</a></td>
-                        <td><a href="{% url 'training_list' player.id %}">Training List</a></td>
+                        <td><a href="{% url 'update_player' player.id %}" class="btn btn-primary" role="button" aria-pressed="true">Edit</a>
+                        <td><a href="{% url 'delete_player' player.id %}" class="btn btn-danger" role="button" aria-pressed="true">Delete</a>
+                        <td><a href="{% url 'training_list' player.id %}" class="btn btn-success" role="button" aria-pressed="true">Training List</a>
                     </tr>
                     {% endfor %}
                 </table>
