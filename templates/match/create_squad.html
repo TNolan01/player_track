@@ -19,7 +19,7 @@
 			{% endfor %}
 			
 			<div class="container">
-				<div class="row"><span class="player_name">Name</span></div>
+				<div class="row" id="selectedPlayer"><span class="player_name">Name</span></div>
 				<div class="row" >
 					<div class="col-6 mb-0" onchange="game_name()" >
 					
@@ -35,8 +35,9 @@
 				</div>
 			</div>
 			<hr>
-			{% endfor %} 
-			<input type="submit" class="btn btn-info"> 
+			{% endfor %}
+			<input type="submit" class="btn btn-primary"> 
+			<a href="{% url 'match_dashboard' %}" class="btn btn-danger"> Cancel </a>
 		</form>
 		
 </div>

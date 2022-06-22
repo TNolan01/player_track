@@ -4,54 +4,59 @@
 
 {% include 'main/stats.html' %}
 
-<h1>Dashboard</h1>
-<div class="row">
-    <div class="col-md">
-        <div class="card card-body">
-            <h4>Training</h4>
-        </div>
-        <div class=" card card-body">
-            <table class="table">
-                <tr>
-                    <th>Date</th>
-                    <th>Session Name</th>
-                </tr>
-                
-                {% for session in trainings %}
+<div class="container" id="dashboardHeader"> <h1>Main Dashboard</h1> </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <h4>Training</h4>
+            </div>
+            <div class=" card card-body">
+                <table class="table">
                     <tr>
-                        <td>{{session.session_date}}</td>
-                        <td>{{session.session_name}}</td>
-                    <tr>
-                {% endfor %}
-            </table>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md">
-        <div class="card card-body">
-            <h4>Matches</h4>
-        </div>
-        <div class=" card card-body">
-            <table class="table">
-                <tr>
-                    <th>Date</th>
-                    <th>Game Details</th>
-                    <th>Venue</th>
-                </tr>
-                
-                {% for game in matches %}
-                    <tr>
-                        <td>{{game.match_date}}</td>
-                        <td>{{game.match_details}}</td>
-                        <td>{{game.venue}}</td>
-                    <tr>
-                {% endfor %}
-            </table>
+                        <th>Date</th>
+                        <th>Session Name</th>
+                    </tr>
+                    
+                    {% for session in trainings %}
+                        <tr>
+                            <td>{{session.session_date}}</td>
+                            <td>{{session.session_name}}</td>
+                        <tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <h4>Matches</h4>
+            </div>
+            <div class=" card card-body">
+                <table class="table">
+                    <tr>
+                        <th>Date</th>
+                        <th>Game Details</th>
+                        <th>Venue</th>
+                    </tr>
+                    
+                    {% for game in matches %}
+                        <tr>
+                            <td>{{game.match_date}}</td>
+                            <td>{{game.match_details}}</td>
+                            <td>{{game.venue}}</td>
+                        <tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
 

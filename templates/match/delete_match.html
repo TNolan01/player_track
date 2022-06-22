@@ -3,16 +3,19 @@
 
 {% block content %}
 <div class="container">
-<br>
-<form method="post">{% csrf_token %}
-    <p>Are you sure you want to delete the game dated <strong>"{{ object }}"</strong>?</p>
-    <p>Game Details : <strong> {{object.match_details}}. </strong></p>
-    {{ form }}
     <br>
-    <hr/>
-    <input type="submit" class="btn btn-info"> 
-    <a href="{% url 'match_dashboard' %}" class="btn btn-primary"> Cancel </a>
-   
-</form>
+    <form method="post">{% csrf_token %}
+        <p><h5>Delete Match</h5></p>
+        <hr>
+        <p>Are you sure you want to delete the game dated <strong>"{{ object }}"</strong>?</p>
+        <p>Game Details : <strong> {{object.match_details}}. </strong></p>
+        {{ form }}
+    
+        <hr>
+        
+        <input type="submit" class="btn btn-primary"> 
+        <a href="{% url 'match_dashboard' %}" class="btn btn-danger">Cancel </a>
+    
+    </form>
 </div>
 {% endblock %}

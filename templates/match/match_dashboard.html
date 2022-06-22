@@ -45,7 +45,7 @@
                 <tr class >
                     <th>Match Date</th>
                     <th>Match Details</th>
-                    <th>Squad Update</th>
+                    <th>Match Squad</th>
                   
                 </tr>
                 
@@ -53,7 +53,6 @@
                 <tr>
                     <td>{{match.match_date}}</td>
                     <td>{{match.match_details}}</td>
-                    <td><a href="{% url 'add_player_to_match' match.id %}">Squad Update</a></td>
                     <td><a href="{% url 'create_squad' match.id %}">Create Squad</a></td>
                 </tr>
             {% endfor %}

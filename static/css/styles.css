@@ -7,13 +7,26 @@ body {
 }
 
 table {
-    /* width: 70%; */
     vertical-align: top;
     text-align: center;
+    margin: 0 auto;
 }
 
-.form-control{
+.form-control {
     height:60px;
     line: height 45px;
     padding:6px;
+}
+
+/*Target the selected player name on formsets on the create_squad.html*/
+#selectedPlayer {
+    font-weight: bolder;
+    color: rgba(13, 9, 230, 0.788);
+
+}
+
+/*Style dashboard indentification headers*/
+#dashboardHeader {
+    font-weight: bolder;
+    color: rgba(13, 9, 230, 0.788);
 }

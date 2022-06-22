@@ -5,65 +5,68 @@
 {% include 'main/stats.html' %}
 
 <br >
-
-<div class="row">
-    <div class="col-md">
-        <div class="card card-body">
-            <a class="btn btn-primary btn-sm btn-block" href="{% url 'create_player' %}">Create Player</a>
-            <h4>Players</h4>
-        </div>
-        <div class=" card card-body">
-            <table class="overflow-x:auto">
-                <tr class >
-                    <th>Players</th>
-                    <th>Contact</th>
-                    <th>Date of Birth</th>
-                    <th>Age</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                    <th>Attendance</th>
-                </tr>
-                
-                {% for player in players %}
-                    <tr>
-                        <td>{{player.name}}</td>
-                        <td>{{player.contact}}</td>
-                        <td>{{player.date_of_birth}}</td>
-                        <td>{{player.Age}}</td>
-                        <td><a href="{% url 'update_player' player.id %}">Edit</a></td>
-                        <td><a href="{% url 'delete_player' player.id %}">Delete</a></td>
-                        <td><a href="{% url 'training_list' player.id %}">Training List</a></td>
-                    <tr>
-                {% endfor %}
-            </table>
-        </div>
-    </div>
-    <div>
-        <div class="card card-body">
-            <a class="btn btn-primary btn-sm btn-block" href="{% url 'squad_attendance' %}">SquadAttendance</a>
-            <h4>Attendance Record</h4>
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <a class="btn btn-secondary btn-block" href="{% url 'create_player' %}">Create Player</a>
+                <hr>
+                <h4>Player Details</h4>
+            </div>
             <div class=" card card-body">
                 <table class="overflow-x:auto">
-                    <tr>
-                        <th>Player</th>
-                        <th>Sessions Attended</th>
-                        <th>Total Sessions </th>
-                        <th>Attendance Percentage</th>
+                    <tr class >
+                        <th>Players</th>
+                        <th>Contact</th>
+                        <th>Date of Birth</th>
+                        <th>Age</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                        <th>Attendance</th>
                     </tr>
                     
-                    {% for p  in session_total %}
-                    <tr class="traffic_light">
-                        <td> {{ p.name }} </td>
-                        <td class="attended_sessions">{{ p.count_sessions }}</td>
-                        <td class="total_sessions">{{ all_sessions }}</td>
-                        <td> <span class = "result">0</span></td>           
-                    <tr>
+                    {% for player in players %}
+                        <tr>
+                            <td>{{player.name}}</td>
+                            <td>{{player.contact}}</td>
+                            <td>{{player.date_of_birth}}</td>
+                            <td>{{player.Age}}</td>
+                            <td><a href="{% url 'update_player' player.id %}">Edit</a></td>
+                            <td><a href="{% url 'delete_player' player.id %}">Delete</a></td>
+                            <td><a href="{% url 'training_list' player.id %}">Training List</a></td>
+                        <tr>
                     {% endfor %}
-                    
                 </table>
+            </div>
         </div>
-        <div class="card card-body">
-            <a class="btn btn-primary btn-sm btn-block" href="{% url 'squad_stats' %}">Squad Stats</a>
+        <div>
+            <div class="card card-body">
+                <a class="btn btn-secondary btn-block" href="{% url 'squad_stats' %}">Squad Attendance List</a>
+                <hr>
+                <h4>Attendance Record</h4>
+                <div class=" card card-body">
+                    <table class="overflow-x:auto">
+                        <tr>
+                            <th>Player</th>
+                            <th>Sessions Attended</th>
+                            <th>Total Sessions </th>
+                            <th>Attendance Percentage</th>
+                        </tr>
+                        
+                        {% for p  in session_total %}
+                        <tr class="traffic_light">
+                            <td> {{ p.name }} </td>
+                            <td class="attended_sessions">{{ p.count_sessions }}</td>
+                            <td class="total_sessions">{{ all_sessions }}</td>
+                            <td> <span class = "result">0</span></td>           
+                        <tr>
+                        {% endfor %}
+                        
+                    </table>
+            </div>
+            <div class="card card-body">
+                <a class="btn btn-secondary btn-block" href="{% url 'squad_stats' %}">Squad Attendance List</a>
+            </div>
         </div>
     </div>
 </div>

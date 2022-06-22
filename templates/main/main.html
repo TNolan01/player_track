@@ -29,10 +29,11 @@
 <body>
   
     
-    {% include 'main/navbar.html' %}
-    <div>  {% for message in messages %}
+{% include 'main/navbar.html' %}
+    <div>  
+        {% for message in messages %}
         <p>{{message}}</p>
-    {% endfor %}
+        {% endfor %}
     </div>
    
     {% block content %}
