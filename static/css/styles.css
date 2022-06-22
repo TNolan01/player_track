@@ -9,7 +9,7 @@ body {
 table {
     vertical-align: top;
     text-align: center;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .form-control {
@@ -28,5 +28,5 @@ table {
 /*Style dashboard indentification headers*/
 #dashboardHeader {
     font-weight: bolder;
-    color: rgba(13, 9, 230, 0.788);
+    color: rgba(32, 32, 37, 0.788);
 }

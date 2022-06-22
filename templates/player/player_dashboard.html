@@ -5,6 +5,7 @@
 {% include 'main/stats.html' %}
 
 <br >
+<div class="container" id="dashboardHeader"> <h2>Player Dashboard</h2> </div>
 <div class="container">
     <div class="row">
         <div class="col-md">
@@ -13,9 +14,9 @@
                 <hr>
                 <h4>Player Details</h4>
             </div>
-            <div class=" card card-body">
-                <table class="overflow-x:auto">
-                    <tr class >
+            <div class= "card card-body">
+                <table class="overflow-x:auto table table-striped">
+                    <tr>
                         <th>Players</th>
                         <th>Contact</th>
                         <th>Date of Birth</th>
@@ -26,15 +27,15 @@
                     </tr>
                     
                     {% for player in players %}
-                        <tr>
-                            <td>{{player.name}}</td>
-                            <td>{{player.contact}}</td>
-                            <td>{{player.date_of_birth}}</td>
-                            <td>{{player.Age}}</td>
-                            <td><a href="{% url 'update_player' player.id %}">Edit</a></td>
-                            <td><a href="{% url 'delete_player' player.id %}">Delete</a></td>
-                            <td><a href="{% url 'training_list' player.id %}">Training List</a></td>
-                        <tr>
+                    <tr>
+                        <td>{{player.name}}</td>
+                        <td>{{player.contact}}</td>
+                        <td>{{player.date_of_birth}}</td>
+                        <td>{{player.Age}}</td>
+                        <td><a href="{% url 'update_player' player.id %}">Edit</a></td>
+                        <td><a href="{% url 'delete_player' player.id %}">Delete</a></td>
+                        <td><a href="{% url 'training_list' player.id %}">Training List</a></td>
+                    </tr>
                     {% endfor %}
                 </table>
             </div>
@@ -45,7 +46,7 @@
                 <hr>
                 <h4>Attendance Record</h4>
                 <div class=" card card-body">
-                    <table class="overflow-x:auto">
+                    <table class="overflow-x:auto table table-striped">
                         <tr>
                             <th>Player</th>
                             <th>Sessions Attended</th>

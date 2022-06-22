@@ -13,7 +13,7 @@
                 <h4>Training</h4>
             </div>
             <div class=" card card-body">
-                <table class="table">
+                <table class="table table-striped">
                     <tr>
                         <th>Date</th>
                         <th>Session Name</th>
@@ -23,7 +23,7 @@
                         <tr>
                             <td>{{session.session_date}}</td>
                             <td>{{session.session_name}}</td>
-                        <tr>
+                        </tr>
                     {% endfor %}
                 </table>
             </div>
@@ -38,7 +38,7 @@
                 <h4>Matches</h4>
             </div>
             <div class=" card card-body">
-                <table class="table">
+                <table class="table table-striped">
                     <tr>
                         <th>Date</th>
                         <th>Game Details</th>
@@ -50,7 +50,7 @@
                             <td>{{game.match_date}}</td>
                             <td>{{game.match_details}}</td>
                             <td>{{game.venue}}</td>
-                        <tr>
+                        </tr>
                     {% endfor %}
                 </table>
             </div>

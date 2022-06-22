@@ -3,62 +3,64 @@
 
 {% block content %}
 <br>
-<h1>Match Dashboard</h1>
-<div class="row">
-    <div class="col-md">
-        <div class="card card-body">
-            <a class="btn btn-primary btn-sm btn-block" href="{% url 'create_match' %}">Create Match</a>
-            <h4>Match Creation</h4>
+<div class="container" id="dashboardHeader"> <h2>Match Dashboard</h2> </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <a class="btn btn-secondary btn-block" href="{% url 'create_match' %}">Create New Match</a>
+                <h4>Match Listings</h4>
+            </div>
+            <div class="card card-body">
+                <table class="overflow-x:auto table table-striped">
+                    <tr>
+                        <th>Match Date</th>
+                        <th>Details</th>
+                        <th>Venue</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    
+                    {% for match in matches %}
+                        <tr>
+                            <td>{{match.match_date}}</td>
+                            <td>{{match.match_details}}</td>
+                            <td>{{match.venue}}</td>   
+                            <td><a href="{% url 'update_match' match.id %}">Update</a></td>
+                            <td><a href="{% url 'delete_match' match.id %}">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
-        <div class=" card card-body">
-            <table class="overflow-x:auto">
-                <tr class >
-                    <th>Match Date</th>
-                    <th>Details</th>
-                    <th>Venue</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-                
-                {% for match in matches %}
+    </div>
+
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <a class="btn btn-secondary btn-block" href="">Create Squad</a> 
+                <h4>Squad Selection</h4>
+            </div>
+            <div class="card card-body">
+                <table class="overflow-x:auto table table-striped">
+                    <tr>
+                        <th>Match Date</th>
+                        <th>Match Details</th>
+                        <th>Match Squad</th>
+                    
+                    </tr>
+                    
+                    {% for match in matches %}
                     <tr>
                         <td>{{match.match_date}}</td>
                         <td>{{match.match_details}}</td>
-                        <td>{{match.venue}}</td>   
-                        <td><a href="{% url 'update_match' match.id %}">Update</a></td>
-                        <td><a href="{% url 'delete_match' match.id %}">Delete</a></td>
-                    <tr>
-                {% endfor %}
-            </table>
+                        <td><a href="{% url 'create_squad' match.id %}">Create Squad</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
     </div>
 </div>
-
-<div class="row">
-    <div class="col-md">
-        <div class="card card-body">
-            <a class="btn btn-primary btn-sm btn-block" href="">Create Squad</a> 
-            <h4>Squad Selection</h4>
-        </div>
-        <div class=" card card-body">
-            <table class="overflow-x:auto">
-                <tr class >
-                    <th>Match Date</th>
-                    <th>Match Details</th>
-                    <th>Match Squad</th>
-                  
-                </tr>
-                
-                {% for match in matches %}
-                <tr>
-                    <td>{{match.match_date}}</td>
-                    <td>{{match.match_details}}</td>
-                    <td><a href="{% url 'create_squad' match.id %}">Create Squad</a></td>
-                </tr>
-            {% endfor %}
-            </table>
-        </div>
-    </div>
-</div>
-
 {% endblock %}

@@ -2,12 +2,19 @@
 
 
 {% block content %}
-<br>
-<form method="post">{% csrf_token %}
-    <p>Are you sure you want to delete "{{ object }}"?</p>
-    {{ form }}
-    <input type="submit" value="Confirm">
-    
-    <a class="btn btn-primary" href="{% url 'player_dashboard' %}" role="button">Back</a>
-</form>
+<div class="container">
+    <br>
+    <form method="post">{% csrf_token %}
+        <p><h5>Delete Player</h5></p>
+        <hr>
+        <p>Are you sure you want to delete the player named <strong>"{{ object }}"</strong>?</p>
+        {{ form }}
+        
+        <hr>
+        
+        <input type="submit" class="btn btn-primary"> 
+        <a href="{% url 'player_dashboard' %}" class="btn btn-danger">Cancel </a>
+        
+    </form>
+</div>
 {% endblock %}

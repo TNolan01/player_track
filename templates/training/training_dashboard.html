@@ -5,15 +5,17 @@
 
 <br>
 
+<div class="container" id="dashboardHeader"> <h2>Training Dashboard</h2> </div>
+
 <div class="container">
     <div class="row">
         <div class="col-md">
             <div class="card card-body"> 
-                <h4>Training Dashboard</h4>
-                <a class="btn btn-primary btn-sm btn-block" href="">Create Session</a>
+                
+                <a class="btn btn-secondary btn-block" href="">Create Session</a>
            
                 <div class="table-responsive">
-                    <table>
+                    <table class="table table-striped" >
                         <tr>
                             <th>Training Date</th>
                             <th>Session Name</th>
@@ -22,7 +24,7 @@
                         
                         </tr>
                         
-                    {% for training in trainings %} 
+                        {% for training in trainings %} 
                         <tr>
                                 <td>{{training.session_date}}</td>
                                 <td>{{training.session_name}}</td>

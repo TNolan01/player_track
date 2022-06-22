@@ -1,24 +1,5 @@
 {% extends 'main/main.html' %}
 
-{% comment %} {% load crispy_forms_tags %}
-
-{% block content %}
-<br>
-<div class="container">
-<form method="POST" action="">
-    {% csrf_token %}
-    {% crispy form %}
-
-   
-<input type="submit" name="Create">
-<input type="submit" class="btn btn-info"> 
-
-</form>
-</div>
-
-{% endblock %}  {% endcomment %}
-
-
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
@@ -28,16 +9,19 @@
 
 <br>
 <div class="container">
-<div class="form-group">
-<form method="POST" action="">
-   
-{% csrf_token %}
-{{ form.media }}
-{% bootstrap_form form %}  
-   
-<input type="submit" class="btn btn-info"> 
-   
-</form>
+       
+    <form method="POST" action="">
+        
+        {% csrf_token %}
+        {{ form.media }}
+        {% bootstrap_form form %}  
+        <hr>
+
+        <input type="submit" class="btn btn-primary"> 
+        <a href="{% url 'training_dashboard' %}" class="btn btn-danger">Cancel </a> 
+        
+    </form>
+    
 </div>
-</div>
+
 {% endblock %}
