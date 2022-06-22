@@ -77,12 +77,14 @@ def player_dashboard(request):
     all_sessions = Session.objects.all().count()
     players = Player.objects.all().order_by('name')
     training_total = Session.objects.all().count()
+    all_matches = Match.objects.all().count()
     context  = {'training': training,
                 'session_total': session_total,
                 'all_sessions': all_sessions,
                 'players': players,
                 'training_total': training_total,
-                'all_players': all_players
+                'all_players': all_players,
+                'all_matches': all_matches
                 }
         
     return render(request, 'player/player_dashboard.html', context)
