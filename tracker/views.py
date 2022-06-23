@@ -25,11 +25,14 @@ def home(request):
     all_matches = Match.objects.all().count()
     trainings = Session.objects.all().order_by('session_date')[:5]
     matches = Match.objects.all().order_by('match_date')[:5]
+    club = Club.objects.filter()[0]
     context = {'all_players': all_players,
                'all_sessions': all_sessions,
                'all_matches': all_matches,
                'trainings': trainings,
-               'matches': matches}
+               'matches': matches,
+               'club': club
+               }
     return render(request, 'main/dashboard.html', context)
 
 
@@ -252,3 +255,34 @@ def pick_the_team(request, pk):
                'players' : players               
             }
     return render(request, 'match/create_squad.html', context) 
+
+
+# Clubname
+class ClubCreateView(UpdateView):
+    model = Club
+    form_class = ClubForm
+    template_name = 'main/create_club.html'
+    success_url = reverse_lazy('match_dashboard')
+    
+    def get_object(self, queryset=None):
+        obj = Club.objects.filter()[0]
+        return obj
+    
+
+
+
+
+
+# def club_name(request):
+#     club_name = Club.objects.filter(id=1)
+#     form = ClubForm(request.POST, instance=club_name)
+#     if request.method == 'POST':
+#         if form.is_valid():
+#             form.save()
+#             return redirect('dashboard')
+#     context = {'form':form,
+#                'club_name': club_name               
+#             }
+#     return render(request, 'main/create_.html', context) 
+
+    

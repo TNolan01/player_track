@@ -77,3 +77,11 @@ class CreateSquad(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(CreateSquad, self).__init__(*args, **kwargs)
         self.fields['player'].widget.attrs['class'] = 'form-select'
+
+
+class ClubForm(ModelForm):
+    class Meta:
+        model = Club
+        fields = '__all__'
+        
+        
