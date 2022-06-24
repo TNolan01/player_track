@@ -19,6 +19,7 @@ urlpatterns = [
     path('player/delete_player/<int:pk>',views.PlayerDeleteView.as_view(), name='delete_player'),
     path('player/squad_attendance',views.squad_attendance, name='squad_attendance'),
     path('player/squad_stats', views.SquadStats.as_view(), name='squad_stats'),
+    path('player/game_list/<int:pk>',views.game_list, name='game_list'),
     path('match/match_dashboard', views.match_dashboard, name='match_dashboard'),
     path('match/create_squad/<int:pk>',views.create_squad, name='create_squad'),
     path('match/add_player_to_match/<int:pk>',views.add_player_to_match, name='add_player_to_match'),

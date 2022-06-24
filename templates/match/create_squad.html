@@ -21,16 +21,17 @@
 			<div class="container">
 				<div class="row" id="selectedPlayer"><span class="player_name">Name</span></div>
 				<div class="row" >
-					<div class="col-6 mb-0" onchange="game_name()" >
-					
-					{{ form.player|as_crispy_field }} 
-										
+					<div class="col-4 mb-0" onchange="game_name()" >
+						{{ form.player|as_crispy_field }} 
 					</div>
-					<div class="col-4 mb-0">
-					{{ form.game_status|as_crispy_field }}
+					<div class="col-3 mb-0">
+						{{ form.game_status|as_crispy_field }}
+					</div>
+					<div class="col-3 mb-0">
+						{{ form.jersey_number|as_crispy_field }}
 					</div>
 					<div class="col-2 mb-0">
-					{{ form.jersey_number|as_crispy_field }}
+						{{ form.DELETE|as_crispy_field }}
 					</div>
 				</div>
 			</div>

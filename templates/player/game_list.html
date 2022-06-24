@@ -1,0 +1,79 @@
+{% extends 'main/main.html' %}
+
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col">
+			<div class="col-md">
+				<div class="card text-center text-blue  mb-3" id="session_total">
+					<div class="card-header">
+						<h5 class="card-title">Total Matches</h5>
+					</div>
+					<div class="card-body">
+						<h3 class="card-title">{{total_games}}</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col">
+			<div class="col-md">
+				<div class="card text-center text-blue  mb-3" id="training_total">
+					<div class="card-header">
+						<h5 class="card-title">Attended Games</h5>
+					</div>
+					<div class="card-body">
+						<h3 class="card-title">{{played}}</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col">
+			<div class="col-md">
+				<div class="card text-center text-blue  mb-3" id="attendance">
+					<div class="card-header">
+						<h5 class="card-title">Attendance Percentage</h5>
+					</div>
+					<div class="card-body">
+						<h3 class="card-title">{{attendance}}%</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+<hr> 
+<div class="container">
+	<h2>{{player.name}}</h2>
+	<hr>
+</div>
+
+<div class="container-fluid">
+	<div class=" card card-body">
+		<table class="table table-striped">
+			<tr>
+				<th>Date</th>
+				<th>Details</th>
+				<th>Venue</th>
+				<th>Status</th>
+				<th>Jersey #</th>
+			</tr>
+			
+			{% for p in games_played %}
+			<tbody>
+			<tr>
+				<td>{{ p.match.match_date }}</td> 
+				<td>{{ p.match.match_details }}</td>
+				<td>{{ p.match.venue }} </td>
+				<td>{{ p.game_status }}</td>
+				<td>{{ p.jersey_number }}</td>
+				<br>
+			<tr>
+			</tbody>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+{% endblock %}

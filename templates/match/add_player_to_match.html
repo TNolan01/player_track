@@ -12,7 +12,7 @@
 		    {% endfor %}
 			
 
-			<form action="" method="POST">
+			<form id="form-controller" action="" method="POST">
 				{% csrf_token %}
 				{{ form.media }}
 				{{ formset.management_form }}
@@ -23,7 +23,7 @@
 				
 				<div class="container" id = "player_name">
 					<div class="row"><span class="player_name">Name</span></div>
-					<div class= "row" >
+					<div class= "row player_form" >
 						<div class="col-6 mb-0">
 							{% bootstrap_field form.player %}
 						</div>
@@ -39,11 +39,33 @@
 				{% endfor %}
 				<input type="submit" class="btn btn-primary"> 
 				<a href="{% url 'match_dashboard' %}" class="btn btn-danger"> Cancel </a>
+				<button id="add-form" type="button">Add Another Bird</button>
 		    </form>
 				
 		</div>
 
 <script> window.onload = game_name(); </script>
+<script>
+	let birdForm = document.querySelectorAll(".player-form")
+	let container = document.querySelector("#form-container")
+	let addButton = document.querySelector("#add-form")
+	let totalForms = document.querySelector("#id_form-TOTAL_FORMS")
 
+	let formNum = birdForm.length-1
+	addButton.addEventListener('click', addForm)
+
+	function addForm(e){
+		e.preventDefault()
+
+		let newForm = birdForm[0].cloneNode(true)
+		let formRegex = RegExp(`form-(\\d){1}-`,'g')
+
+		formNum++
+		newForm.innerHTML = newForm.innerHTML.replace(formRegex, `form-${formNum}-`)
+		container.insertBefore(newForm, addButton)
+		
+		totalForms.setAttribute('value', `${formNum+1}`)
+	}
+</script>
 
 {% endblock %} 

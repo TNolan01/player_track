@@ -16,7 +16,7 @@
                 <h4>Player Details</h4>
             </div>
             <div class= "card card-body">
-                <table class="overflow-x:auto table table-striped">
+                <table class="table table-striped">
                     <tr>
                         <th>Players</th>
                         <th>Contact</th>
@@ -24,7 +24,8 @@
                         <th>Age</th>
                         <th>Edit</th>
                         <th>Delete</th>
-                        <th>Attendance</th> 
+                        <th>Training</th>
+                        <th>Games</th> 
                     </tr>
                     
                     {% for player in players %}
@@ -37,6 +38,7 @@
                         <td><a href="{% url 'update_player' player.id %}" class="btn btn-primary" role="button" aria-pressed="true">Edit</a>
                         <td><a href="{% url 'delete_player' player.id %}" class="btn btn-danger" role="button" aria-pressed="true">Delete</a>
                         <td><a href="{% url 'training_list' player.id %}" class="btn btn-success" role="button" aria-pressed="true">Training List</a>
+                        <td><a href="{% url 'game_list' player.id %}" class="btn btn-success" role="button" aria-pressed="true">Game List</a>  
                     </tr>
                     </tbody>
                     {% endfor %}

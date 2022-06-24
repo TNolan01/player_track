@@ -157,6 +157,24 @@ def squad_attendance(request):
     return render(request,'player/squad_attendance.html', context)
 
 
+# This returns the game attendance history for each individual player, part of player section.
+def game_list(request, pk):
+    player = Player.objects.get(id=pk)
+    total_games = Match.objects.all().count()
+    games_played = Team_Selection.objects.all().filter(player=player)
+    total_matches_played = Team_Selection.objects.all().filter(player=player).count()
+    if total_matches_played == 0:
+        played = 'No games played'
+    else:
+        played = total_matches_played
+    context  = {'total_games': total_games,
+                'games_played': games_played,
+                'total_matches_played': total_matches_played,
+                'player': player,
+                'played': played}
+    return render(request,'player/game_list.html', context)
+
+
 class SquadStats(ListView):
     model = Session
     template_name = 'player/squad_stats.html'
@@ -209,7 +227,6 @@ class MatchListView(ListView):
     template_name = 'match/match_list.html'
     success_url = reverse_lazy('match_dashboard')
   
-
 
 def add_player_to_match(request, pk):
     SquadFormSet = inlineformset_factory(Match, Team_Selection, form=SquadForm, fields=('player','jersey_number','game_status'), max_num=25)
@@ -275,20 +292,5 @@ class ClubCreateView(UpdateView):
         return obj
     
 
-
-
-
-
-# def club_name(request):
-#     club_name = Club.objects.filter(id=1)
-#     form = ClubForm(request.POST, instance=club_name)
-#     if request.method == 'POST':
-#         if form.is_valid():
-#             form.save()
-#             return redirect('dashboard')
-#     context = {'form':form,
-#                'club_name': club_name               
-#             }
-#     return render(request, 'main/create_.html', context) 
 
     
