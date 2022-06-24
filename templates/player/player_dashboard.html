@@ -28,6 +28,7 @@
                     </tr>
                     
                     {% for player in players %}
+                    <tbody>
                     <tr>
                         <td>{{player.name}}</td>
                         <td>{{player.contact}}</td>
@@ -37,6 +38,7 @@
                         <td><a href="{% url 'delete_player' player.id %}" class="btn btn-danger" role="button" aria-pressed="true">Delete</a>
                         <td><a href="{% url 'training_list' player.id %}" class="btn btn-success" role="button" aria-pressed="true">Training List</a>
                     </tr>
+                    </tbody>
                     {% endfor %}
                 </table>
             </div>
@@ -56,12 +58,14 @@
                         </tr>
                         
                         {% for p  in session_total %}
+                        <tbody>
                         <tr class="traffic_light">
                             <td> {{ p.name }} </td>
                             <td class="attended_sessions">{{ p.count_sessions }}</td>
                             <td class="total_sessions">{{ all_sessions }}</td>
                             <td> <span class = "result">0</span></td>           
                         <tr>
+                        </tbody>
                         {% endfor %}
                         
                     </table>

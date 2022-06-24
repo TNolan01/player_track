@@ -202,6 +202,12 @@ class MatchDeleteView(DeleteView):
     model = Match
     template_name = 'match/delete_match.html'
     success_url = reverse_lazy('match_dashboard')
+    
+    
+class MatchListView(ListView):
+    model = Match
+    template_name = 'match/match_list.html'
+    success_url = reverse_lazy('match_dashboard')
   
 
 

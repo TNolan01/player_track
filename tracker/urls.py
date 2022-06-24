@@ -25,6 +25,7 @@ urlpatterns = [
     path('training/create_match',views.MatchCreateView.as_view(), name='create_match'),
     path('match/update_match/<int:pk>',views.MatchUpdateView.as_view(), name='update_match'),
     path('match/delete_match/<int:pk>',views.MatchDeleteView.as_view(), name='delete_match'),
+    path('match/match_list', views.MatchListView.as_view(), name='match_list'),
     path('main/create_club',views.ClubCreateView.as_view(), name='create_club'),     
     # path('main/create_club',views.club_name, name='create_club'), 
     ]

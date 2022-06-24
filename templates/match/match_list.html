@@ -1,0 +1,39 @@
+{% extends 'main/main.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{{ form.media }}
+
+{% block content %}
+
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center">
+            <h1>Complete fixtures list</h1>
+    </div>
+    <hr>
+    
+    <table class="table table-striped table-responsive" >
+        <tr>
+            <th>Date</th>
+            <th>Match Details</th>
+            <th>Venue</th>
+        </tr>
+        
+        {% for match in object_list %} 
+        <tbody>
+        <tr>
+            <td>{{ match.match_date }}</td>
+            <td>{{ match.match_details }}</td>
+            <td>{{ match.venue }}</td>
+        </tr>
+        </tbody>
+        {% empty %}
+        <li>No fixtures arranged yet.</li>
+        {% endfor %} 
+    </table>
+
+</div>
+{% endblock %}

@@ -14,11 +14,12 @@
         
         {% csrf_token %}
         {{ form.media }}
+        <h3>Please enter the name of your club and team.</h3>
         {% bootstrap_form form %}  
         <br>
         <hr>
         <input type="submit" class="btn btn-primary"> 
-        <a href="{% url 'match_dashboard' %}" class="btn btn-danger"> Cancel </a>
+        <a href="{% url 'dashboard' %}" class="btn btn-danger"> Cancel </a>
         </form>
         
     </div>

@@ -13,7 +13,7 @@
                 <h4>Match Listings</h4>
             </div>
             <div class="card card-body">
-                <table class="overflow-x:auto table table-striped">
+                <table class="table table-striped">
                     <tr>
                         <th>Match Date</th>
                         <th>Details</th>
@@ -23,13 +23,15 @@
                     </tr>
                     
                     {% for match in matches %}
+                        <tbody>
                         <tr>
                             <td>{{match.match_date}}</td>
                             <td>{{match.match_details}}</td>
                             <td>{{match.venue}}</td>   
-                            <td><a href="{% url 'update_match' match.id %}">Update</a></td>
-                            <td><a href="{% url 'delete_match' match.id %}">Delete</a></td>
+                            <td><a href="{% url 'update_match' match.id %}" class="btn btn-primary" role="button" aria-pressed="true">Update</a></td>
+                            <td><a href="{% url 'delete_match' match.id %}" class="btn btn-danger" role="button" aria-pressed="true">Delete</a></td>
                         </tr>
+                        </tbody>
                     {% endfor %}
                 </table>
             </div>
@@ -39,11 +41,11 @@
     <div class="row">
         <div class="col-md">
             <div class="card card-body">
-                <a class="btn btn-secondary btn-block" href="">Create Squad</a> 
+                <a class="btn btn-secondary btn-block" href="{% url 'match_list' %}">List all matches</a> 
                 <h4>Squad Selection</h4>
             </div>
             <div class="card card-body">
-                <table class="overflow-x:auto table table-striped">
+                <table class="table table-striped">
                     <tr>
                         <th>Match Date</th>
                         <th>Match Details</th>
@@ -52,11 +54,13 @@
                     </tr>
                     
                     {% for match in matches %}
+                    <tbody>
                     <tr>
                         <td>{{match.match_date}}</td>
                         <td>{{match.match_details}}</td>
-                        <td><a href="{% url 'create_squad' match.id %}">Create Squad</a></td>
+                        <td><a href="{% url 'create_squad' match.id %}" class="btn btn-success" role="button" aria-pressed="true">Create Squad</a></td>
                     </tr>
+                    </tbody>                           
                     {% endfor %}
                 </table>
             </div>

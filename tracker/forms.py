@@ -60,7 +60,7 @@ class SquadForm(forms.ModelForm): #add_player_to_match
         fields = ['match', 'player', 'jersey_number', 'game_status']
         
         widgets = {
-        'jersey_number': forms.Select(attrs={'class': 'form-control','required':False, 'placeholder':'Jersey'}),
+        'jersey_number': forms.Select(attrs={'class': 'form-control','required':False}),
         'game_status' : forms.Select(attrs={'class': 'form-control','required':False}), 
         }
 
@@ -84,4 +84,6 @@ class ClubForm(ModelForm):
         model = Club
         fields = '__all__'
         
-        
+        widgets = {
+            'club_name': forms.TextInput(attrs={'class': 'form-control'})
+        }
