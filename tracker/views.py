@@ -246,7 +246,7 @@ def add_player_to_match(request, pk):
 
 
 def create_squad(request, pk):
-    MatchFormSet = inlineformset_factory(Match, Team_Selection, form=CreateSquad, fields=('player','jersey_number','game_status'), max_num=25)
+    MatchFormSet = inlineformset_factory(Match, Team_Selection, form=CreateSquad, fields=('player','jersey_number','game_status'),extra=22, max_num=25)
     match = Match.objects.get(id=pk)
     players = Player.objects.all()
     formset = MatchFormSet(instance=match)
@@ -263,7 +263,7 @@ def create_squad(request, pk):
 
 
 def pick_the_team(request, pk):
-    MatchFormSet = inlineformset_factory(Match, Team_Selection, form=CreateSquad, fields=('player','jersey_number','game_status'), max_num=25)
+    MatchFormSet = inlineformset_factory(Match, Team_Selection, form=CreateSquad, fields=('player','jersey_number','game_status'),extra=20, max_num=25)
     match_data = Team_Selection.objects.filter(match=pk)
     players = Player.objects.all()
     # formset = MatchFormSet(instance=match)

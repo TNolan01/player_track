@@ -21,7 +21,8 @@
         <script src="https://kit.fontawesome.com/ce72b77aef.js" crossorigin="anonymous"></script>
 
         <!--custom-->
-        <script src="{% static "assets/js/script.js" %} ">async</script> 
+        
+        <script src="{% static 'assets/js/script.js' %} ">async</script> 
         <link rel="stylesheet" type="text/css" href= "{% static "css/styles.css" %}"> 
         
    
@@ -31,9 +32,13 @@
     
 {% include 'main/navbar.html' %}
     <div>  
-        {% for message in messages %}
-        <p>{{message}}</p>
-        {% endfor %}
+        {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
     </div>
    
     {% block content %}

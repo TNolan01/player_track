@@ -77,6 +77,18 @@ class CreateSquad(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(CreateSquad, self).__init__(*args, **kwargs)
         self.fields['player'].widget.attrs['class'] = 'form-select'
+        
+    def clean_jersey_number(self, *args, **kwargs):
+        jersey_number = self.cleaned_data.get('jersey_number')
+        if jersey_number is None:
+            raise forms.ValidationError('Please enter a jersey number')
+        return jersey_number
+
+    def clean_game_status(self, *args, **kwargs):
+        game_status = self.cleaned_data.get('game_status')
+        if len(game_status) < 2:
+            raise forms.ValidationError('Please enter game status')
+        return game_status
 
 
 class ClubForm(ModelForm):

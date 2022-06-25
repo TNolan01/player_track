@@ -18,6 +18,10 @@ table {
     padding:6px;
 }
 
+.hidden {
+    display: none;
+}
+
 /*Target the selected player name on formsets on the create_squad.html*/
 #selectedPlayer {
     font-weight: bolder;

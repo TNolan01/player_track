@@ -9,8 +9,26 @@
 	<p>{{message}}</p>
 	{% endfor %}
 	
-	
+	<br>
 		<form action="" method="POST">
+			<div class="container-fluid">
+				<div class"row">
+					<div>
+						<input type="submit" class="btn btn-primary"> 
+						<a href="{% url 'match_dashboard' %}" class="btn btn-danger"> Cancel </a>
+					</div>
+				</div>
+				<br>
+				<div class"row">
+					<div class="col-4 mb-0">
+						<h2>{{ match.match_date }}</h2>
+					</div>
+					<div class="col-4 mb-0">
+						<h2>{{ match.match_details }}</h2>
+					</div>
+				</div>
+			</div>	
+			<hr>
 			{% csrf_token %}
 			{{ formset.management_form }}
 			{% for form in formset %} 
@@ -18,7 +36,7 @@
 				{{ hidden }}
 			{% endfor %}
 			
-			<div class="container">
+			<div class="container-fluid" id="player_formset">
 				<div class="row" id="selectedPlayer"><span class="player_name">Name</span></div>
 				<div class="row" >
 					<div class="col-4 mb-0" onchange="game_name()" >
@@ -37,10 +55,14 @@
 			</div>
 			<hr>
 			{% endfor %}
+
 			<input type="submit" class="btn btn-primary"> 
 			<a href="{% url 'match_dashboard' %}" class="btn btn-danger"> Cancel </a>
 		</form>
 		
 </div>
 <script> window.onload = game_name(); </script>
+
+
+
 {% endblock %} 
