@@ -47,16 +47,17 @@ def stats(request):
 
 #training related views
 def training_dashboard(request):
-    trainings = Session.objects.all().order_by('session_date')
+    trainings = Session.objects.all().order_by('session_date')[:10]
     context = {'trainings': trainings}
     return render(request, 'training/training_dashboard.html', context)
 
 
-class TrainingCreateView(CreateView):
+class TrainingCreateView(SuccessMessageMixin, CreateView):
     model = Session
     form_class = SessionForm
     template_name = 'training/create_session.html'
     success_url = reverse_lazy('training_dashboard')
+    success_message = "New training session created."
     
     
 class TrainingUpdateView(UpdateView):
@@ -70,6 +71,12 @@ class TrainingDeleteView(DeleteView):
     model = Session
     template_name = 'training/delete_session.html'
     success_url = reverse_lazy('training_dashboard')
+    
+    
+class TrainingListView(ListView):
+    model = Session
+    template_name = 'training/training_list.html'
+    success_url = reverse_lazy('match_dashboard')
     
         
 #player related views

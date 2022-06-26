@@ -1,0 +1,39 @@
+{% extends 'main/main.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{{ form.media }}
+
+{% block content %}
+
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center">
+            <h1>Complete Training List</h1>
+    </div>
+    <hr>
+    
+    <table class="table table-striped" >
+        <tr>
+            <th>Date</th>
+            <th>Match Details</th>
+            
+        </tr>
+        
+        {% for session in object_list %} 
+        <tbody>
+        <tr>
+            <td>{{ session.session_date }}</td>
+            <td>{{ session.session_name }}</td>
+            
+        </tr>
+        </tbody>
+        {% empty %}
+        <li>No fixtures arranged yet.</li>
+        {% endfor %} 
+    </table>
+
+</div>
+{% endblock %}

@@ -12,6 +12,7 @@ urlpatterns = [
     path('training/create_session',views.TrainingCreateView.as_view(), name='create_session'),
     path('training/update_session/<int:pk>',views.TrainingUpdateView.as_view(), name='update_session'),
     path('training/delete_session/<int:pk>',views.TrainingDeleteView.as_view(), name='delete_session'),
+    path('training/training_list', views.TrainingListView.as_view(), name='training_list'),
     path('player/player_dashboard',views.player_dashboard, name='player_dashboard'),
     path('player/create_player',views.PlayerCreateView.as_view(), name='create_player'),
     path('player/update_player/<int:pk>',views.PlayerUpdateView.as_view(), name='update_player'),
