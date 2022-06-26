@@ -35,6 +35,11 @@ function game_name(){
     document.getElementsByClassName("player_name")[i].innerHTML = text;
     } 
 }
-    
+
+
+
+
+
+
     
   

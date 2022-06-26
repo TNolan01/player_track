@@ -266,8 +266,6 @@ def pick_the_team(request, pk):
     MatchFormSet = inlineformset_factory(Match, Team_Selection, form=CreateSquad, fields=('player','jersey_number','game_status'),extra=20, max_num=25)
     match_data = Team_Selection.objects.filter(match=pk)
     players = Player.objects.all()
-    # formset = MatchFormSet(instance=match)
-    
     if request.method == 'POST':
         formset = MatchFormSet(request.POST, instance=match)
         if formset.is_valid():
@@ -292,5 +290,12 @@ class ClubCreateView(UpdateView):
         return obj
     
 
-
-    
+# Team Sheet
+def team_sheet(request, pk):
+    match = Match.objects.get(id=pk)
+    squad = Team_Selection.objects.all().filter(match=match).order_by('jersey_number')
+    match_data = Team_Selection.objects.filter(match=match)[:1]
+    context = { 'match_data': match_data,
+                'squad' : squad
+            }
+    return render(request, 'match/team_sheet.html', context) 

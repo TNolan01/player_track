@@ -71,9 +71,14 @@ class Team_Selection(models.Model):
     points = models.IntegerField(null=True, blank=True)
     notes  = models.CharField(max_length=50, null=True, blank=True)
 
+    def __str__(self):
+        return str(self.match)
+
+
 
 class Club(models.Model):
     club_name = models.CharField(max_length=200, null=True, default='Club Name')
     
     def __str__(self):
         return self.club_name
+  

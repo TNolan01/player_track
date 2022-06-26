@@ -49,8 +49,8 @@
                     <tr>
                         <th>Match Date</th>
                         <th>Match Details</th>
-                        <th>Match Squad</th>
-                    
+                        <th>Create Squad</th>
+                        <th>Team Sheet</th>
                     </tr>
                     
                     {% for match in matches %}
@@ -59,6 +59,7 @@
                         <td>{{match.match_date}}</td>
                         <td>{{match.match_details}}</td>
                         <td><a href="{% url 'create_squad' match.id %}" class="btn btn-success" role="button" aria-pressed="true">Create Squad</a></td>
+                        <td><a href="{% url 'team_sheet' match.id %}" class="btn btn-success" role="button" aria-pressed="true">Team Sheet</a></td>
                     </tr>
                     </tbody>                           
                     {% endfor %}
