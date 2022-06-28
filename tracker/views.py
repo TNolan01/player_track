@@ -23,8 +23,9 @@ def home(request):
     all_players = Player.objects.all().count()
     all_sessions = Session.objects.all().count()
     all_matches = Match.objects.all().count()
-    trainings = Session.objects.all().order_by('session_date')[:5]
-    matches = Match.objects.all().order_by('match_date')[:5]
+    tomorrow = datetime.datetime.today()+datetime.timedelta() 
+    trainings = Session.objects.filter(session_date__gte = tomorrow)[:5]
+    matches = Match.objects.filter(match_date__gte = tomorrow)[:5]
     club = Club.objects.filter()[0]
     context = {'all_players': all_players,
                'all_sessions': all_sessions,
@@ -47,9 +48,19 @@ def stats(request):
 
 #training related views
 def training_dashboard(request):
-    trainings = Session.objects.all().order_by('session_date')[:10]
-    context = {'trainings': trainings}
+    tomorrow = datetime.datetime.today()+datetime.timedelta() 
+    sessions = Session.objects.filter(session_date__gte = tomorrow)[:5]
+    get_upcoming_sessions()
+    context = {'sessions' : sessions}
     return render(request, 'training/training_dashboard.html', context)
+
+
+def get_upcoming_sessions():
+    upcoming_session_list = []
+    for session in Session.objects.all():
+        if session.is_past_due: # here you use the new property of your model
+            upcoming_session_list.append(session)
+    return upcoming_session_list
 
 
 class TrainingCreateView(SuccessMessageMixin, CreateView):
@@ -57,27 +68,30 @@ class TrainingCreateView(SuccessMessageMixin, CreateView):
     form_class = SessionForm
     template_name = 'training/create_session.html'
     success_url = reverse_lazy('training_dashboard')
-    success_message = "New training session created."
+    success_message = "New training session created"
     
     
-class TrainingUpdateView(UpdateView):
+class TrainingUpdateView(SuccessMessageMixin, UpdateView):
     model = Session
     form_class = SessionForm
     template_name = 'training/update_session.html'
     success_url = reverse_lazy('training_dashboard')
+    success_message = "Successfully updated training session"
     
     
-class TrainingDeleteView(DeleteView):
+class TrainingDeleteView(SuccessMessageMixin, DeleteView):
     model = Session
     template_name = 'training/delete_session.html'
     success_url = reverse_lazy('training_dashboard')
+    success_message = "Training session deleted"
     
     
 class TrainingListView(ListView):
     model = Session
     template_name = 'training/training_list.html'
-    success_url = reverse_lazy('match_dashboard')
-    
+    success_url = reverse_lazy('training_dashboard')
+
+ 
         
 #player related views
 def player_dashboard(request):
@@ -100,19 +114,19 @@ def player_dashboard(request):
     return render(request, 'player/player_dashboard.html', context)
 
 
-class PlayerCreateView(CreateView):
+class PlayerCreateView(SuccessMessageMixin, CreateView):
     model = Player
     form_class = PlayerForm
     template_name = 'player/create_player.html'
     success_url = reverse_lazy('player_dashboard')
+    success_message = "New player created successfully"
     
-    
-class PlayerUpdateView(UpdateView):
+class PlayerUpdateView(SuccessMessageMixin, UpdateView):
     model = Player
     form_class = PlayerForm
     template_name = 'player/update_player.html'
     success_url = reverse_lazy('player_dashboard')
-    
+    success_message = "Player data updated successfully"
     
 class PlayerDetailView(DetailView):
     queryset = Session.objects.all()
@@ -120,10 +134,12 @@ class PlayerDetailView(DetailView):
     success_url = reverse_lazy('player_dashboard')
     
     
-class PlayerDeleteView(DeleteView):
+class PlayerDeleteView(SuccessMessageMixin, DeleteView):
     model = Player
     template_name = 'player/delete_player.html'
     success_url = reverse_lazy('player_dashboard')
+    success_message = "The player has been deleted successfully"
+    
 
 # This returns the training attendance history for each individual player, part of player section.
 def training_list(request, pk):
@@ -204,30 +220,32 @@ class SquadStats(ListView):
    
 # match related views
 def match_dashboard(request):
-    matches = Match.objects.all().order_by('match_date')
+    tomorrow = datetime.datetime.today()+datetime.timedelta() 
+    matches = Match.objects.filter(match_date__gte = tomorrow)[:5]
     context = {'matches': matches}
     return render(request, 'match/match_dashboard.html', context)
 
 
-class MatchCreateView(CreateView):
+class MatchCreateView(SuccessMessageMixin, CreateView):
     model = Match
     form_class = MatchForm
     template_name = 'match/create_match.html'
     success_url = reverse_lazy('match_dashboard')
+    success_message = "New match fixture was created successfully"
     
     
-class MatchUpdateView(UpdateView):
+class MatchUpdateView(SuccessMessageMixin, UpdateView):
     model = Match
     form_class = MatchForm
     template_name = 'match/update_match.html'
     success_url = reverse_lazy('match_dashboard')
+    success_message = "Match data has been updated successfully"
     
-    
-class MatchDeleteView(DeleteView):
+class MatchDeleteView(SuccessMessageMixin, DeleteView):
     model = Match
     template_name = 'match/delete_match.html'
     success_url = reverse_lazy('match_dashboard')
-    
+    success_message = "Match data has been deleted successfully"
     
 class MatchListView(ListView):
     model = Match
@@ -291,6 +309,7 @@ class ClubCreateView(UpdateView):
     form_class = ClubForm
     template_name = 'main/create_club.html'
     success_url = reverse_lazy('match_dashboard')
+    
     
     def get_object(self, queryset=None):
         obj = Club.objects.filter()[0]

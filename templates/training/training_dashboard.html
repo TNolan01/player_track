@@ -5,7 +5,11 @@
 
 <br>
 
-<div class="container-fluid" id="dashboardHeader"> <h2>Training Dashboard</h2> </div>
+<div class="container-fluid" id="dashboardHeader"> 
+    <h2>Training Dashboard</h2> 
+    <h4>The next 5 sessions..</h4>
+
+</div>
 
 <div class="container-fluid">
     <div class="row">
@@ -24,18 +28,20 @@
                         
                         </tr>
                         
-                        {% for training in trainings %} 
+                        {% for session in sessions %} 
                         <tbody>
                         <tr>
-                                <td>{{training.session_date}}</td>
-                                <td>{{training.session_name}}</td>
-                                <td><a href="{% url 'update_session' training.id %}" class="btn btn-primary" role="button" aria-pressed="true">Update</a></td>
-                                <td><a href="{% url 'delete_session' training.id %}" class="btn btn-danger" role="button" aria-pressed="true">Delete</a></td>
+                                <td>{{session.session_date}}</td>
+                                <td>{{session.session_name}}</td>
+                                <td><a href="{% url 'update_session' session.id %}" class="btn btn-primary" role="button" aria-pressed="true">Update</a></td>
+                                <td><a href="{% url 'delete_session' session.id %}" class="btn btn-danger" role="button" aria-pressed="true">Delete</a></td>
                              
                         </tr>
                         </tbody>
                         {% endfor %} 
                     </table>
+                   
+
                 </div>
                 <a class="btn btn-secondary btn-block" href="{% url 'training_list' %}">Complete Training List</a>
             </div>        
