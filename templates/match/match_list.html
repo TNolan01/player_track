@@ -20,6 +20,8 @@
             <th>Date</th>
             <th>Match Details</th>
             <th>Venue</th>
+            <th>Update</th>
+            <th>Squad</th>
         </tr>
         
         {% for match in object_list %} 
@@ -28,6 +30,8 @@
             <td>{{ match.match_date }}</td>
             <td>{{ match.match_details }}</td>
             <td>{{ match.venue }}</td>
+            <td><a href="{% url 'update_match' match.id %}" class="btn btn-primary" role="button" aria-pressed="true">Update</a></td>
+            <td><a href="{% url 'create_squad' match.id %}" class="btn btn-success" role="button" aria-pressed="true">Create Squad</a></td>
         </tr>
         </tbody>
         {% empty %}

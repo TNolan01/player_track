@@ -46,25 +46,24 @@
 </div>	
 <hr> 
 <div class="container">
- <h2>{{player.name}}</h2>
-</div>
-
-<div class="container">
-	<div class=" card card-body">
-		<table class="overflow-x:auto table table-striped">
+ 	<h2>{{player.name}}</h2>
+	<hr>
+		<table class="table table-striped">
 			<tr>
 				<th>Session Date</th>
 				<th>Session Details</th>
 			</tr>
 			
 			{% for t in training %}
-			<tr>
-				<td>{{ t.session_date }}</td> 
-				<td>{{ t.session_name }}</td>
-				<br>
-			<tr>
+			<tbody>
+				<tr>
+					<td>{{ t.session_date }}</td> 
+					<td>{{ t.session_name }}</td>
+					<br>
+				<tr>
+			</tbody>
 			{% endfor %}
 		</table>
-	</div>
+	{% comment %} </div> {% endcomment %}
 </div>
 {% endblock %}

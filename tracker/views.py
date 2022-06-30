@@ -50,17 +50,8 @@ def stats(request):
 def training_dashboard(request):
     tomorrow = datetime.datetime.today()+datetime.timedelta() 
     sessions = Session.objects.filter(session_date__gte = tomorrow)[:5]
-    get_upcoming_sessions()
     context = {'sessions' : sessions}
     return render(request, 'training/training_dashboard.html', context)
-
-
-def get_upcoming_sessions():
-    upcoming_session_list = []
-    for session in Session.objects.all():
-        if session.is_past_due: # here you use the new property of your model
-            upcoming_session_list.append(session)
-    return upcoming_session_list
 
 
 class TrainingCreateView(SuccessMessageMixin, CreateView):
