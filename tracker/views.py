@@ -175,17 +175,20 @@ def squad_attendance(request):
 def game_list(request, pk):
     player = Player.objects.get(id=pk)
     total_games = Match.objects.all().count()
-    games_played = Team_Selection.objects.all().filter(player=player)
+    games_played = Team_Selection.objects.all().filter(player=player).order_by('match')
     total_matches_played = Team_Selection.objects.all().filter(player=player).count()
     if total_matches_played == 0:
         played = 'No games played'
+        played_percentage = 0
     else:
         played = total_matches_played
+        played_percentage = int((played * 100) / total_games)
     context  = {'total_games': total_games,
                 'games_played': games_played,
                 'total_matches_played': total_matches_played,
                 'player': player,
-                'played': played}
+                'played': played,
+                'played_percentage': played_percentage}
     return render(request,'player/game_list.html', context)
 
 

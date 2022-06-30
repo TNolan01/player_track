@@ -11,15 +11,21 @@
 <div class="container-fluid">
     <div class="form-group">
         <form method="POST" action="">
-        
-        {% csrf_token %}
-        {{ form.media }}
-        {% bootstrap_form form %}  
-        
-        <input type="submit" class="btn btn-primary"> 
-        <a href="{% url 'match_dashboard' %}" class="btn btn-danger"> Cancel </a>
+                    
+            {% csrf_token %}
+            {{ form.media }}
+            {% bootstrap_form form %}  
+            
+            <input type="submit" class="btn btn-primary"> 
+            <a href="{% url 'match_dashboard' %}" class="btn btn-danger"> Cancel </a>
         
         </form>
+        <hr>
+        <div>
+            {% for field in form %}
+                <h5  style="color:red"> <strong> {{ field.errors }} </strong> </h5>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}

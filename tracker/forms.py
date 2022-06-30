@@ -8,6 +8,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, HTML, Field, Layout, ButtonHolder, Fieldset, Div, Row, Column
 from bootstrap_datepicker_plus.widgets import DatePickerInput, TimePickerInput, DateTimePickerInput, MonthPickerInput, YearPickerInput
 from django.forms.models import formset_factory
+from django.core.exceptions import ValidationError
 
 
 
@@ -59,7 +60,15 @@ class MatchForm(forms.ModelForm):
             
             'match_date': DatePickerInput(attrs=None, format ='%Y-%m-%d', options=None)
         }
-        
+    
+    def clean_match_date(self, *args, **kwargs):
+        match_date = self.cleaned_data.get('match_date')
+        if match_date < datetime.date.today():
+            raise ValidationError('A new match cannot be set for a date in the past')
+        for instance in Match.objects.all():
+            if instance.match_date == match_date:
+                raise ValidationError('There is already a game already on that date')
+        return match_date
   
         
 class SquadForm(forms.ModelForm): #add_player_to_match
