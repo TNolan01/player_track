@@ -14,11 +14,40 @@ from extra_views import CreateWithInlinesView, UpdateWithInlinesView, InlineForm
 from django.views.generic.detail import SingleObjectMixin
 from django.views.generic.edit import FormView
 from django.contrib.messages.views import SuccessMessageMixin
-
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
 
 
 
 #main related views
+def register_page(request):
+    form = CreateUserForm
+   
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.info(request, 'Account created for ' + user)
+            return redirect('login')
+    else:
+        print(form.errors)
+    context = {'form':form}
+    return render(request, 'main/register.html', context)
+
+
+def login_page(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('dashboard')
+    context = {}
+    return render(request, 'main/login.html', context)
+
+
 def home(request):
     all_players = Player.objects.all().count()
     all_sessions = Session.objects.all().count()

@@ -16,9 +16,9 @@ function traffic_light() {
         if (num1 <=10 ){ 
             document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FF0000'} 
         else if (num1 >=11 && num1 <= 50){
-            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FFFF22'}
-        else if (num1 >= 51 && num1 <=80){
             document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FFA500'}
+        else if (num1 >= 51 && num1 <=80){
+            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FFFF22'}
         else {
             document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#26A916'  
         }
@@ -38,13 +38,14 @@ function game_name(){
 
 
 function check_box_count(){
-    var inputElems = document.getElementsById("id_player"),
+    var inputElems = document.getElementById("id_player"),
     count = 0;
     for (var i=0; i<inputElems.length; i++) {
     if (inputElems[i].type === "checkbox" && inputElems[i].checked === true){
         count++;
-        alert(count);
+       
     }
+    console.log(count);
 }}
 
 

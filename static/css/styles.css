@@ -2,9 +2,7 @@
     display: none;
 }
 
-body {
-    /* background-color: grey; */
-}
+
 
 table {
     vertical-align: top;
@@ -12,10 +10,22 @@ table {
     margin: auto;
 } 
 
-.form-control {
-    height:60px;
-    line: height 45px;
-    padding:6px;
+.form-box  {
+    width: 200px;
+} 
+
+#Help {
+    font-weight: lighter;
+}
+
+#login-box {
+    padding: 0;
+}
+
+
+#label_text {
+    font-weight: bolder;
+    font-size: 16px;
 }
 
 .hidden {

@@ -9,6 +9,8 @@ from crispy_forms.layout import Submit, HTML, Field, Layout, ButtonHolder, Field
 from bootstrap_datepicker_plus.widgets import DatePickerInput, TimePickerInput, DateTimePickerInput, MonthPickerInput, YearPickerInput
 from django.forms.models import formset_factory
 from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 
 
@@ -67,7 +69,7 @@ class MatchForm(forms.ModelForm):
             raise ValidationError('A new match cannot be set for a date in the past')
         for instance in Match.objects.all():
             if instance.match_date == match_date:
-                raise ValidationError('There is already a game already on that date')
+                raise ValidationError('There is already a game on that date')
         return match_date
   
         
@@ -116,3 +118,9 @@ class ClubForm(ModelForm):
         widgets = {
             'club_name': forms.TextInput(attrs={'class': 'form-control'})
         }
+
+
+class CreateUserForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
