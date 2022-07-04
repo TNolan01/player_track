@@ -7,7 +7,7 @@
 <br >
 <div class="container-fluid" id="dashboardHeader"> <h2>Player Dashboard</h2> </div>
 
-<div class="container-fluid">
+<div class="container-responsive">
     <div class="row">
         <div class="col-md">
             <div class="card card-body">
@@ -15,13 +15,13 @@
                 <hr>
                 <h4>Player Details</h4>
             </div>
-            <div class= "card card-body">
+            <div class= "table-responsive">
                 <table class="table table-striped">
                     <tr>
                         <th>Players</th>
-                        <th>Contact</th>
-                        <th>Date of Birth</th>
-                        <th>Age</th>
+                        <th class="d-none d-sm-table-cell">Contact</th>
+                        <th class="d-none d-sm-table-cell">Date of Birth</th>
+                        <th class="d-none d-sm-table-cell" >Age</th>
                         <th>Edit</th>
                         <th>Delete</th>
                         <th>Training</th>
@@ -32,9 +32,9 @@
                     <tbody>
                     <tr>
                         <td>{{player.name}}</td>
-                        <td>{{player.contact}}</td>
-                        <td>{{player.date_of_birth}}</td>
-                        <td>{{player.Age}}</td>
+                        <td class="d-none d-sm-table-cell" >{{player.contact}}</td>
+                        <td class="d-none d-sm-table-cell">{{player.date_of_birth}}</td>
+                        <td class="d-none d-sm-table-cell">{{player.Age}}</td>
                         <td><a href="{% url 'update_player' player.id %}" class="btn btn-primary" role="button" aria-pressed="true">Edit</a>
                         <td><a href="{% url 'delete_player' player.id %}" class="btn btn-danger" role="button" aria-pressed="true">Delete</a>
                         <td><a href="{% url 'training_list' player.id %}" class="btn btn-success" role="button" aria-pressed="true">Training List</a>
@@ -48,10 +48,11 @@
         <div>
             <div class="card card-body">
                 <a class="btn btn-secondary btn-block" href="{% url 'squad_stats' %}">Squad Attendance List</a>
+            </div>
                 <hr>
                 <h4>Attendance Record</h4>
-                <div class=" card card-body">
-                    <table class="overflow-x:auto table table-striped">
+                <div class="table-responsive">
+                    <table class="table table-striped">
                         <tr>
                             <th>Player</th>
                             <th>Sessions Attended</th>
@@ -71,7 +72,7 @@
                         {% endfor %}
                         
                     </table>
-            </div>
+                </div>
             <div class="card card-body">
                 <a class="btn btn-secondary btn-block" href="{% url 'squad_stats' %}">Squad Attendance List</a>
             </div>

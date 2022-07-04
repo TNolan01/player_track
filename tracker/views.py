@@ -43,7 +43,10 @@ def login_page(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            messages.success(request, 'You have successfully logged in')
             return redirect('dashboard')
+        else:
+            messages.info(request, 'Username and/or password are incorrect')  
     context = {}
     return render(request, 'main/login.html', context)
 

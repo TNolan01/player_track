@@ -6,58 +6,57 @@
 {% block content %}
 
 <br>
-<div class="container">
+<div class="container-responsive" >
     
     <div class="d-flex justify-content-center">
         <h3 id="form-title">Register an new account</h3>
     </div>
     <hr>
     
-    <form method="POST" action="">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-6">
+    <div class="d-flex justify-content-center">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="form-group" id="reg_form">
                 <div class="input-group-append">
                     <label for="username" id="label_text" >Username</label>
                     <div class="form-box">{{form.username}}</div>
                     <small id="Help" class="form-text text-muted">Pick an unique username</small>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="form-group" id="reg_form">
                 <div class="input-group-append">
                     <label for="email" id="label_text">Email address</label>
                     <div class="form-box" >{{form.email}}</div>
                     <small id="Help" class="form-text text-muted">We'll never share your email with anyone else</small>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
+            <div class="form-group" id="reg_form">
                 <div class="input-group-append">
                     <label for="email" id="label_text" >Create a password</label>
                     <div class="form-box" >{{form.password1}}</div>
                     <small id="Help" class="form-text text-muted">Password must be at least 8 characters</small> 
                 </div>
             </div>
-            <div class="col-6">
+            <div class="form-group"  id="reg_form">
                 <div class="input-group-append">
                     <label for="email" id="label_text">Confirm password</label>
                     <div class="form-box" >{{form.password2}}</div>
                     <small id="Help" class="form-text text-muted">Please confirm your password</small> 
                 </div>
             </div>
-        </div>
-        <hr>
-        <div class="mt-4">
-            <div class="d-flex justify-content-center" >
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-            </div>    
-        </div>
-    </form>
+        
+            <hr>
+            <div class="mt-4">
+                <div class="d-flex justify-content-center" >
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                </div>    
+            </div>
+        </form>
+    </div>
 
     <div class="mt-4">
         <div class="d-flex justify-content-center links">
-            <h6> {{form.errors}} </h6>
+            <h6 style="color:red;"> {{form.errors}} </h6>
         </div>
     
         

@@ -3,7 +3,6 @@
 }
 
 
-
 table {
     vertical-align: top;
     text-align: center;
@@ -31,6 +30,7 @@ table {
 .hidden {
     display: none;
 }
+
 
 /*Target the selected player name on formsets on the create_squad.html*/
 #selectedPlayer {
