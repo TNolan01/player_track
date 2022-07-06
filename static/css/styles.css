@@ -31,16 +31,39 @@ table {
     display: none;
 }
 
+/*Style for logged in user name on navbar*/
+.logged-user {
+    font-weight: bolder;
+    font-size: 18px;
+    color: #56a832;
+}
+
+/*Style for logged in user name on navbar*/
+.log-out-link {
+    font-weight: bolder;
+    font-size: 18px;
+    margin-left: 10px;
+} 
+
+
 
 /*Target the selected player name on formsets on the create_squad.html*/
 #selectedPlayer {
     font-weight: bolder;
     color: rgba(13, 9, 230, 0.788);
-
 }
+
 
 /*Style dashboard indentification headers*/
 #dashboardHeader {
     font-weight: bolder;
     color: rgba(32, 32, 37, 0.788);
+}
+
+
+/* create_session.html */
+/* position form on screen */
+#session_form {
+    margin-left: 10px;
+    margin-right: 10px;
 }

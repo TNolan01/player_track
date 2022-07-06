@@ -16,26 +16,32 @@ from django.views.generic.edit import FormView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
+from .decorators import *
 
 
 
 #main related views
+@unauthenticated_user
 def register_page(request):
     form = CreateUserForm
-   
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.info(request, 'Account created for ' + user)
+            user = form.save()
+            username = form.cleaned_data.get('username')
+            group = Group.objects.get(name='visitor')
+            user.groups.add(group)
+            messages.info(request, 'Account created for ' + username)
             return redirect('login')
-    else:
-        print(form.errors)
+        else:
+            print(form.errors)
     context = {'form':form}
     return render(request, 'main/register.html', context)
 
 
+@unauthenticated_user
 def login_page(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -51,6 +57,12 @@ def login_page(request):
     return render(request, 'main/login.html', context)
 
 
+def logout_page(request):
+    logout(request)
+    return redirect('login')
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['admin','visitor'])
 def home(request):
     all_players = Player.objects.all().count()
     all_sessions = Session.objects.all().count()
@@ -68,7 +80,7 @@ def home(request):
                }
     return render(request, 'main/dashboard.html', context)
 
-
+@login_required(login_url='login')
 def stats(request):
     all_players = Player.objects.all().count()
     all_sessions = Session.objects.all().count()
@@ -79,11 +91,13 @@ def stats(request):
 
 
 #training related views
+@login_required(login_url='login')
 def training_dashboard(request):
     tomorrow = datetime.datetime.today()+datetime.timedelta() 
     sessions = Session.objects.filter(session_date__gte = tomorrow)[:5]
     context = {'sessions' : sessions}
     return render(request, 'training/training_dashboard.html', context)
+
 
 
 class TrainingCreateView(SuccessMessageMixin, CreateView):
@@ -92,7 +106,7 @@ class TrainingCreateView(SuccessMessageMixin, CreateView):
     template_name = 'training/create_session.html'
     success_url = reverse_lazy('training_dashboard')
     success_message = "New training session created"
-    
+
     
 class TrainingUpdateView(SuccessMessageMixin, UpdateView):
     model = Session
@@ -108,14 +122,14 @@ class TrainingDeleteView(SuccessMessageMixin, DeleteView):
     success_url = reverse_lazy('training_dashboard')
     success_message = "Training session deleted"
     
-    
+
 class TrainingListView(ListView):
     model = Session
     template_name = 'training/training_list.html'
     success_url = reverse_lazy('training_dashboard')
 
  
-        
+@login_required(login_url='login')       
 #player related views
 def player_dashboard(request):
     all_players = Player.objects.all().count
@@ -137,20 +151,25 @@ def player_dashboard(request):
     return render(request, 'player/player_dashboard.html', context)
 
 
+
 class PlayerCreateView(SuccessMessageMixin, CreateView):
     model = Player
     form_class = PlayerForm
     template_name = 'player/create_player.html'
     success_url = reverse_lazy('player_dashboard')
     success_message = "New player created successfully"
-    
+ 
+ 
+   
 class PlayerUpdateView(SuccessMessageMixin, UpdateView):
     model = Player
     form_class = PlayerForm
     template_name = 'player/update_player.html'
     success_url = reverse_lazy('player_dashboard')
     success_message = "Player data updated successfully"
-    
+   
+   
+   
 class PlayerDetailView(DetailView):
     queryset = Session.objects.all()
     template_name = 'player/training_list.html'
@@ -165,6 +184,7 @@ class PlayerDeleteView(SuccessMessageMixin, DeleteView):
     
 
 # This returns the training attendance history for each individual player, part of player section.
+@login_required(login_url='login')
 def training_list(request, pk):
     player = Player.objects.get(id=pk)
     session_total = Session.objects.all().count()
@@ -183,6 +203,7 @@ def training_list(request, pk):
 
 
 #List all players, their attendance and the attendance percentage.
+@login_required(login_url='login')
 def squad_attendance(request):
     session_total = Player.objects.values('name').annotate(count_sessions=Count('session'))
     player = Player.objects.all()
@@ -204,6 +225,7 @@ def squad_attendance(request):
 
 
 # This returns the game attendance history for each individual player, part of player section.
+@login_required(login_url='login')
 def game_list(request, pk):
     player = Player.objects.get(id=pk)
     total_games = Match.objects.all().count()
@@ -222,6 +244,7 @@ def game_list(request, pk):
                 'played': played,
                 'played_percentage': played_percentage}
     return render(request,'player/game_list.html', context)
+
 
 
 class SquadStats(ListView):
@@ -245,6 +268,7 @@ class SquadStats(ListView):
    
    
 # match related views
+@login_required(login_url='login')
 def match_dashboard(request):
     tomorrow = datetime.datetime.today()+datetime.timedelta() 
     matches = Match.objects.filter(match_date__gte = tomorrow)[:5]
@@ -259,19 +283,21 @@ class MatchCreateView(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('match_dashboard')
     success_message = "New match fixture was created successfully"
     
-    
+   
 class MatchUpdateView(SuccessMessageMixin, UpdateView):
     model = Match
     form_class = MatchForm
     template_name = 'match/update_match.html'
     success_url = reverse_lazy('match_dashboard')
     success_message = "Match data has been updated successfully"
-    
+ 
+ 
 class MatchDeleteView(SuccessMessageMixin, DeleteView):
     model = Match
     template_name = 'match/delete_match.html'
     success_url = reverse_lazy('match_dashboard')
     success_message = "Match data has been deleted successfully"
+
     
 class MatchListView(ListView):
     model = Match
@@ -279,6 +305,7 @@ class MatchListView(ListView):
     success_url = reverse_lazy('match_dashboard')
   
 
+@login_required(login_url='login')
 def add_player_to_match(request, pk):
     SquadFormSet = inlineformset_factory(Match, Team_Selection, form=SquadForm, fields=('player','jersey_number','game_status'), max_num=25)
     match = Match.objects.get(id=pk)
@@ -296,6 +323,7 @@ def add_player_to_match(request, pk):
     return render(request, 'match/add_player_to_match.html', context) 
 
 
+@login_required(login_url='login')
 def create_squad(request, pk):
     MatchFormSet = inlineformset_factory(Match, Team_Selection, form=CreateSquad, fields=('player','jersey_number','game_status'),extra=22, max_num=25)
     match = Match.objects.get(id=pk)
@@ -313,6 +341,7 @@ def create_squad(request, pk):
     return render(request, 'match/create_squad.html', context) 
 
 
+@login_required(login_url='login')
 def pick_the_team(request, pk):
     MatchFormSet = inlineformset_factory(Match, Team_Selection, form=CreateSquad, fields=('player','jersey_number','game_status'),extra=20, max_num=25)
     match_data = Team_Selection.objects.filter(match=pk)
@@ -343,6 +372,7 @@ class ClubCreateView(UpdateView):
     
 
 # Team Sheet
+@login_required(login_url='login')
 def team_sheet(request, pk):
     match = Match.objects.get(id=pk)
     squad = Team_Selection.objects.all().filter(match=match).order_by('jersey_number')
