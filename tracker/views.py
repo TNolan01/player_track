@@ -62,7 +62,7 @@ def logout_page(request):
     return redirect('login')
 
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['admin','visitor'])
+@allowed_users(allowed_roles=['admin','visitor','coaching'])
 def home(request):
     all_players = Player.objects.all().count()
     all_sessions = Session.objects.all().count()

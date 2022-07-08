@@ -20,15 +20,14 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'training_dashboard' %}">Training</a>
-            </li>
+            </li> 
             <li class="nav-item">
               <a class="nav-link" href="{% url 'create_club' %}">Create Club</a>
             </li>
+            {% endif %}
+            {% if request.user.groups.all.0.name == 'coaching' %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'register' %}">Register Account</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">Log In</a>
+              <a class="nav-link" href="{% url 'training_dashboard' %}">Training</a>
             </li>
             {% endif %}
           </ul>

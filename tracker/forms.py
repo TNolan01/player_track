@@ -44,7 +44,7 @@ class SessionForm(forms.ModelForm):
     
     
         widgets = {
-        'session_date': DatePickerInput(attrs=None, format ='%Y-%m-%d', options=None),
+        'session_date': DatePickerInput(attrs={'placeholder': 'YY-MM-DD'}, format ='%Y-%m-%d', options=None),
         'session_name': forms.Textarea(attrs={'class': 'form-control', 'rows':'4', 'cols':'50'})
         }
      
@@ -60,7 +60,7 @@ class MatchForm(forms.ModelForm):
         fields = ['match_date','match_details','venue']
         widgets = {
             
-            'match_date': DatePickerInput(attrs=None, format ='%Y-%m-%d', options=None)
+            'match_date': DatePickerInput(attrs={'placeholder': 'YY-MM-DD'}, format ='%Y-%m-%d', options=None)
         }
     
     def clean_match_date(self, *args, **kwargs):
