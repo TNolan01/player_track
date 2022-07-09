@@ -236,8 +236,6 @@ The backend database is PostgreSQL Database hosted via Heroku. The database is b
 <br>
 
 
-
-
 **Club Model**
 
 This models holds only one field at present. I am using this to hold the Name of the club for which the data relates to. The club name value is then displayed on the Main Dashboard. 
@@ -327,10 +325,33 @@ The site uses the Django and Bootstrap
 - The site has **responsive design** when viewed on a mobile, tablet, and desktop.
 
 - **Easy navigation** to external sites, such as social media accounts.
-- The user is given feedback when they interact with the website (i.e. login to the website, add new gift, commit to buying a gift etc).
-​
+
+- The site has **three levels of user access**,
+
+<p align="center" width="100%"> 
+<img src="media/read_me/user_access.png" alt="user access" width=""/>
+</p>
+
+The levels are <span style="color:#ebd80c; font-weight:bold">'admin','coaching' and 'visitor'.</span>
+These are three groups which were created in the Django Administration panel.
+
+The **admin** group consists of the 'team manager' or administrator whom has full access to all features of the application.
+
+The **coaching** group consists of a login for the other coaching staff. The members of this group have access to the Main Dashboard and the Training menu. This will allow members of the coaching group full functionality to create, update and delete training sessions with ability to adding and removing players.
+
+The **visitor** is for memebers of the team and guardians and parents. Members of this group are allowed access to the Main Dashboard only. This will allow them see upcoming training and match fixtures.
+
+As default all new members which register with the account are put into the **visitor** group. 
+
+<p align="center" width="100%"> 
+<img src="media/read_me/new_user_register.png" alt="user access" width=""/>
+</p>
+
+
 
 ### Future Features
+
+- An In-Play feature which would allow the manager enter scores in real time. This would display 'live' information on the match for the memebers with access to the the Main Dashboard so they could get up to date information on their childs games if they could attend. This would incorporate a timer or clock.
 
 [Back to content](#contents)
 ​

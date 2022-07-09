@@ -61,6 +61,7 @@ def logout_page(request):
     logout(request)
     return redirect('login')
 
+
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin','coaching','visitor'])
 def home(request):
