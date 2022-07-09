@@ -38,13 +38,14 @@
     - [Site Visitor/User Goals](#site-visitoruser-goals)
     - [User Stories](#user-stories)
     - [User Requirements and Expectations](#user-requirements-and-expectations)
-      - [**Requirements**](#requirements)
-      - [**Expectations**](#expectations)
+      - [Requirements](#requirements)
+      - [Expectations](#expectations)
     - [Design Choices](#design-choices)
-      - [**Fonts**](#fonts)
-      - [**Colours**](#colours)
+      - [Fonts](#fonts)
+      - [Colours](#colours)
+      - [Agile Methodology](#agile-methodology)
   - [Wireframes](#wireframes)
-    - [**Site Layout**](#site-layout)
+    - [Site Layout](#site-layout)
   - [Information Architecture](#information-architecture)
   - [Technologies](#technologies)
     - [Languages](#languages)
@@ -54,7 +55,6 @@
     - [Implemented Features](#implemented-features)
     - [Future Features](#future-features)
     - [Redundant features](#redundant-features)
-  - [Changes applied since planning](#changes-applied-since-planning)
   - [Testing](#testing)
   - [Deployment](#deployment)
     - [Local Deployment](#local-deployment)
@@ -131,6 +131,7 @@ The main goal of this project is to provide coaches of sports teams the ability 
 #### **Expectations**
 ​
 - Easy to use interface.
+- Clear and easy to read data.
 
 ​<br>
 [Back to content](#contents)
@@ -174,6 +175,21 @@ To break this white colour I have added two colours, a green and a yellow, to st
 Any other colour on the screen is comes from a Bootstrap styled button. The only exception to this is the colour on the Player Dashboard section which signifies the players attendance record.
 ​
 <br>
+<br>
+
+#### **Agile Methodology**
+
+
+The design, development and testing of this application were tracked through a project opened in GitHub and associated with the application repository. The Project and Kanban board are located [here](https://github.com/TNolan01/player_track/projects/1).
+
+<br>
+
+<p align="center" width="100%"> 
+<img src="media/read_me/project_sample.png" alt="sample of Kanban" width=""/>
+</p>
+
+<br>
+
 
 [Back to content](#contents)
 ​
@@ -339,7 +355,7 @@ The **admin** group consists of the 'team manager' or administrator whom has ful
 
 The **coaching** group consists of a login for the other coaching staff. The members of this group have access to the Main Dashboard and the Training menu. This will allow members of the coaching group full functionality to create, update and delete training sessions with ability to adding and removing players.
 
-The **visitor** is for memebers of the team and guardians and parents. Members of this group are allowed access to the Main Dashboard only. This will allow them see upcoming training and match fixtures.
+The **visitor** is for memebers of the sports team and guardians and parents. Members of this group are allowed access to the Main Dashboard only. This will allow them see upcoming training and match fixtures.
 
 As default all new members which register with the account are put into the **visitor** group. 
 
@@ -347,11 +363,143 @@ As default all new members which register with the account are put into the **vi
 <img src="media/read_me/new_user_register.png" alt="user access" width=""/>
 </p>
 
+- The site features a **Traffic Light** color scheme on the Player Dashboard. Based on the players attendance at training their name is highlighted in a particular color, this is done with Javascript.
 
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/traffic_light.png" alt="user access" width=""/>
+</p>
+<br>
+
+Players highlighted in <span style="color:#26A916; font-weight:bold">Green</span> have the best attendance record, players with attendance percentage in the range of 51 to 80% are highlighted in <span style="color:#FFFF22; font-weight:bold">Yellow</span>. Players with attendance percentage in the range of 11 to 50% aare not highlighted in <span style="color:#FFA500; font-weight:bold">Amber</span>. Players with a 10% or less attendance percentage are colored with <span style="color:#FF0000; font-weight:bold">Red</span>.
+
+- The Player Dashboard also has button for 'Squad Attendance List'. This displays a list of all the players in order of training attendance percentage from highest to lowest.
+<br>
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/squad_attendance_list.png" alt="squad attendance list" width=""/>
+</p>
+<br>
+
+<span style="color:#56a832; font-weight:bold; font-size:16px">Player Dashboard</span>
+<ul>
+<li>The admin has the ability to create a new player and update and delete an existing player.</li>
+
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/player_dashboard.png" alt="player dashboard" width=""/>
+</p>
+<br>
+
+<li>The admin can view the players training and match attendance histories.</li>
+
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/training_history.png" alt="player training list" width=""/>
+</p>
+
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/game_history.png" alt="player game list" width=""/>
+</p>
+<br>
+
+<li>Using the current date and the players Date of Birth the Player Dashboard calculates and displays the age of each player.</li>
+
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/player_age.png" alt="players age" width=""/>
+</p>
+<br>
+
+</ul> 
+
+<span style="color:#56a832; font-weight:bold; font-size:16px">Match Dashboard</span>
+<ul>
+<li>The admin has the ability to create a new match and update and delete an existing match fixture. The dashboard only displays games whos date is current and it only lists the next 5 fixtures. Fixtures older than 'todays' date are not displayed.</li>
+
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/match_dashboard.png" alt="match dashboard" width=""/>
+</p>
+<br>
+Create a new fixture.
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/create_match.png" alt="create match" width=""/>
+</p>
+<br>
+
+<li>The admin can also create a playing squad for a match and view team sheets for games.</li>
+
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/squad_selection.png" alt="squad selection" width=""/>
+</p>
+<br>
+
+<li>The team selection form displays the the game information, date and opposition. The admin selects a player from the drop down list, selects if the player is 'starting' or a 'sub'. The manager also selects the players jersey number which is between 1 and 25. Once a player is selected, their name appears on the formset over the dropdown menu. This is done via JavaScript. The name displays in blue.</li>
+
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/team_selection.png" alt="team selection" width=""/>
+</p>
+<br>
+
+<li>The 'List All Matches' button which divides the Match Listings and Squad Selection when selected, will display all fixtures in date order. The admin can also change details for the a fixture and/or update or create a squad.</li>
+
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/list_all_matches.png" alt="list match button" width=""/>
+</p>
+
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/complete_fixture_list.png" alt="fixture list" width=""/>
+</p>
+<br>
+<span style="color:#56a832; font-weight:bold; font-size:16px">Training Dashboard</span>
+<ul>
+<li>The Training Dashboard is accessible to members of the 'admin' group and the 'coaching' group. The dashboard displays the next 5 scheduled sessions in date order. With sessions dated older than the current date not being displayed.</li>
+
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/training_dashboard.png" alt="training dashboard" width=""/>
+</p>
+<br>
+
+<li>With access to this group application users can create, delete and update training sessions.</li>
+
+<li>A user can see a list of all training sessions, listed in date order, and update these sessions if required.</li>
+
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/complete_training_list.png" alt="training list" width=""/>
+</p>
+<br>
+
+<li>The coaches/manager can create a new training session from one form. The create training form lists all the players in the squad and allows the coaches/manager to simply select the players in attendance with a checkbox. The user selects the session date via a Datepicker and can enter some notes or a reference regarding the session into a text box. </li>
+
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/create_a_new_session.png" alt="training session" width=""/>
+</p>
+<br>
+
+
+
+
+</ul>
+
+<br>
 
 ### Future Features
 
 - An In-Play feature which would allow the manager enter scores in real time. This would display 'live' information on the match for the memebers with access to the the Main Dashboard so they could get up to date information on their childs games if they could attend. This would incorporate a timer or clock.
+
+- Email notification for registered members of the application.
+
+- Make a printable team sheet.
 
 [Back to content](#contents)
 ​
@@ -433,24 +581,43 @@ Deployment of this project is carried out with  Heroku, https://www.heroku.com .
 <li>Click on the 'New' button in the top right corner and from the drop-down menu select 'Create new app'.</li>
 <li>Create an App name and select your Region from menu.</li>
 <li>Click the 'Create App' button.</li>
-<li>You will now have a menu for your new app. From here click on the Settings Tab and in the Config Vars. Click Reveal Config Vars.</li>
+<li>Click in resources and select Heroku Postgres as the project database.
+<li>You will now have a menu for your new app. From here click on the Settings Tab and in the Config Vars. Click Reveal Config Vars. <br>
+<ul>
+<li>add your Secret Key</li>
+<li>add Cloudinary URL</li>
+<li>add PostgreSQL URL</li>
+<li>add PORT with value '8000'</li>
+<li>add a record - 'DISABLE_COLLECTSTATIC = 1'</li> 
+</ul>
+</li>
+
 <br>
 <p align ="center">
-<img title="heroku" alt="screen shot of Heroku app menu" src="images/readme_images/heroku_app_menu.png"></p>
+<img title="heroku" alt="screen shot of Heroku app menu" src="media/read_me/config_vars.png"></p>
 <br>
 
-<li>You need to create Config Vars for the Google API Credentials. Enter 'CREDS' as the KEY and then copy the entire contents of the creds.json file from GITPOD in the VALUE section, click the Add button to finish.  </li>
-<li>A second Config Vars will be required. In the KEY box enter 'PORT' and in the VALUE box enter 8000 and then click the Add button.</li>
-<li>Scroll down to the Buildpacks section. Click Add buildpack. From the menu select Python and click Save Changes. </li>
-<li>Click Add buildpack again and Node.js. The Buildpacks must added in this order. If not, you can click on the packs and drag them to the correct order as shown in the image.</li>
+<li>Scroll down to the Buildpacks section. Click Add buildpack. From the menu select heroku/python and click Save Changes. </li>
+
 <br>
 <p align ="center">
-<img title="heroku" alt="screen shot of Heroku settings" src="images/readme_images/heroku.png"></p>
+<img title="heroku" alt="screen shot of Heroku app menu" src="media/read_me/heroku_buildpack.png"></p>
 <br>
+
 <li>Return to menu at the top of the page and click on Deploy. Select Github as the deployment method.</li>
 <li>Confirm you want to connect to GitHub using your account credentials for Git. Once Heroku has access search for the relevant repository name and click the connect button.</li>
 <li>At the bottom of the deploy page select the preferred deployment type. You can use Manual Deploy which will deploy based on the current state of the selected Git branch. You can also Enable Automatic Deploys for automatic deployment when you push updates to Github selected branch.</li>
+</ol>
 <br>
+
+### Final Deployment
+<ul> 
+<li>Create a runtime.txt file - 'python 3.8.13'</li>
+<li>Run the command - 'web: gunicorn "name of project".wsgi'</li>
+<li>In 'settings.py' change the DEBUG to 'DEBUG = False'</li>
+<li>In the Heroku dashboard for this app, navigate to 'settings' and delete the entry for DISABLE_COLLECTSTATIC</li>
+</ul>
+
 
 [Back to Contents](#contents) 
 <br>
@@ -495,6 +662,7 @@ Aside from the Code Institue content for this section I used the following resou
 
 - [Stack Overflow](https://stackoverflow.com/)
 - [CodeMy.Com on YouTube](https://www.youtube.com/watch?v=HHx3tTQWUx0&list=PLCC34OHNcOtqW9BJmgQPPzUpJ8hl49AGy&index=2)
+- [Dennis Ivy](https://www.youtube.com/watch?v=tUqUdu0Sjyc&t=1469s)
 
 <br>
 
