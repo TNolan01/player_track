@@ -1,8 +1,9 @@
-# Anseo
+# An Seo
 ​
 <span style="font-weight:bold; font-size:16px">
-[Anseo](https://an-seo.herokuapp.com/) is a web based application which allows managers and coaches of to track the attendance of their players at training and for matches. The application is primarily designed for underage and amateur sports.</span> 
+[An Seo](https://an-seo.herokuapp.com/) is a web based application which allows managers and coaches of to track the attendance of their players at training and for matches. The application is primarily designed for underage and amateur sports.</span> 
 <br>
+[This is an external link to An Seo](https://an-seo.herokuapp.com/)
 
 <span style="color:#56a832; font-weight:bold; font-size:16px">Origins of the application.</span>
 <p> The initial inspiration for the application was formed while I was assisting with coaching of my daughters Camogie team. I became aware that the manager was using a hand written list to record player attendance.</p>
@@ -20,14 +21,16 @@
 </ul>
 <p>It also seemed clear that once the manager/site owner was recording this data then it could be used for further purpose and features to enhance the use and function of the application.</p>
 
-​
-[Site display on different screens](am-i-responsive-image)
+<br>
+
+[Site display on different screens](/media/read_me/responsive_screen_shot.png)
+
+<img src="media/read_me/responsive_screen_shot.png" alt="screen shots of site" width=""/>
 ​
 
-​
 ## Contents
 ​
-- [Anseo]()
+- [Anseo](#contents)
   - [Contents](#contents)
   - [UX](#ux)
     - [Project Goals](#project-goals)
@@ -150,7 +153,9 @@ I have decided against using Font Awesome or any other resource Font library, I 
 #### **Images**
 The only image I am using is the logo which I created I a desktop publishing application. I have given the application the name 'An Seo' which is the Irish / Gaelic for 'here'. Anyone of certain age who attended primary school in Ireland would be familiar with the phrase as response to a teacher calling your name to take a class attendance.
 
-insert logo image here. xxxx
+<p align="center" width="100%"> 
+<img src="media/read_me/logo.png" alt="logo for website" width=""/>
+</p>
 
 
 #### **Colours**
@@ -162,14 +167,13 @@ After experimentation the background colour has been left white.
 
 To break this white colour I have added two colours, a green and a yellow, to style some container and card items and create some divisions on the screen. 
 
-
-xxxx insert image of colours xxxx
+<p align="center" width="100%"> 
+<img src="media/read_me/color_scheme.png" alt="logo for website" width=""/>
+</p>
 ​
-[Colour palette](colour-pallette-img)
-
 Any other colour on the screen is comes from a Bootstrap styled button. The only exception to this is the colour on the Player Dashboard section which signifies the players attendance record.
 ​
-
+<br>
 
 [Back to content](#contents)
 ​
@@ -180,9 +184,30 @@ Any other colour on the screen is comes from a Bootstrap styled button. The only
 ### **Site Layout**
 ​The site layout and mock-ups sketches were drawn free hand with pen and paper.
 
-Hand drawn wireframes are located in the folder [site wireframes](/)
+Preliminary wireframe sketches were made to create intial structure to the screen layout and the content.
 
-As the sketches has been rendered there has been UX design and layout changes verus the orignal wireframes. Slight style changes were made early in the design process following some 'live' testing.
+<br>
+
+<p align="center" width="100%"> 
+<img src="media/wireframes/wireframe1.png" alt="wireframe sketch1" width=""/>
+</p>
+
+<br>
+
+<p align="center" width="100%"> 
+<img src="media/wireframes/wireframe2.png" alt="wireframe sketch2" width=""/>
+</p>
+
+<br>
+
+<p align="center" width="100%"> 
+<img src="media/wireframes/wireframe3.png" alt="wireframe sketch3" width=""/>
+</p>
+
+<br>
+
+
+As the sketches has been rendered there has been UX design and layout changes verus the orignal wireframes. Slight style changes were made early in the design process following some live testing.
 ​
 
 [Back to content](#contents)
@@ -203,6 +228,15 @@ The backend database is PostgreSQL Database hosted via Heroku. The database is b
 <li>Player</li>
 </ul>
 <br>
+
+<p align="center" width="100%"> 
+<img src="media/read_me/dbase_relationship.png" alt="database layout" width=""/>
+</p>
+
+<br>
+
+
+
 
 **Club Model**
 
