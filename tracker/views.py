@@ -62,7 +62,7 @@ def logout_page(request):
     return redirect('login')
 
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['admin','visitor','coaching'])
+@allowed_users(allowed_roles=['admin','coaching','visitor'])
 def home(request):
     all_players = Player.objects.all().count()
     all_sessions = Session.objects.all().count()
@@ -81,6 +81,7 @@ def home(request):
     return render(request, 'main/dashboard.html', context)
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def stats(request):
     all_players = Player.objects.all().count()
     all_sessions = Session.objects.all().count()
@@ -88,6 +89,8 @@ def stats(request):
                'all_sessions': all_sessions}
     return render(request, 'main/stats.html', context)
 
+def no_access(request):
+    return render(request, 'main/no_access.html')
 
 
 #training related views
@@ -129,7 +132,8 @@ class TrainingListView(ListView):
     success_url = reverse_lazy('training_dashboard')
 
  
-@login_required(login_url='login')       
+@login_required(login_url='login') 
+@allowed_users(allowed_roles=['admin'])      
 #player related views
 def player_dashboard(request):
     all_players = Player.objects.all().count
