@@ -10,7 +10,6 @@
     
     <div class="d-flex justify-content-center">
         <h3 id="form-title">Login</h3>
-        
     </div>
     <hr>
     <br>
@@ -19,13 +18,13 @@
             <form method="POST" action="#">
                 {% csrf_token %}
                 <div class="input-group mb-3">
-                <h4>Please enter your login details</h4>
+                    <h4>Please enter your login details</h4>
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-append">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input type="text" name="username" placeholder="Username..." class="form-control login-box">
+                        <input type="text" name="username" placeholder="Username..." class="form-control login-box">
                 </div>
                 <div class="input-group mb-2">
                     <div class="input-group-append">
@@ -43,7 +42,7 @@
                 <div class="d-flex justify-content-center links">
                     <span> {{form.errors}} </span>
                 </div>
-                            
+            </div>                
             <div class="mt-4">
                 <div class="d-flex justify-content-center links">
                     <h6>Don't have an account, please register   

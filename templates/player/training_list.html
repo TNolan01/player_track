@@ -52,21 +52,21 @@
  	<h2>{{player.name}}</h2>
 	<hr>
 	<table class="table table-striped">
+		<tr>
+			<th>Session Date</th>
+			<th>Session Details</th>
+		</tr>
+		
+		{% for t in training %}
+		<tbody>
 			<tr>
-				<th>Session Date</th>
-				<th>Session Details</th>
-			</tr>
-			
-			{% for t in training %}
-			<tbody>
-				<tr>
-					<td>{{ t.session_date }}</td> 
-					<td>{{ t.session_name }}</td>
-					
-				<tr>
-			</tbody>
-			{% endfor %}
-		</table>
-	{% comment %} </div> {% endcomment %}
+				<td>{{ t.session_date }}</td> 
+				<td>{{ t.session_name }}</td>
+				
+			<tr>
+		</tbody>
+		{% endfor %}
+	</table>
+	
 </div>
 {% endblock %}

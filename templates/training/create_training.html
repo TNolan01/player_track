@@ -29,14 +29,13 @@
                 </tr>
                 
                 {% for session in sessions %}
-                    <tr>
-                        <td>{{session.session_date}}</td>
-                        <td>{{session.session_name}}</td>
-                        <td><a href="{% url 'edit_session' session.id %}">Edit</a></td>
-                        <td><a href="{% url 'delete_session' session.id %}">Delete</a></td>
-                        <td><a href="{% url 'training' session.id %}">Add Players</a></td>
-                        
-                    <tr>
+                <tr>
+                    <td>{{session.session_date}}</td>
+                    <td>{{session.session_name}}</td>
+                    <td><a href="{% url 'edit_session' session.id %}">Edit</a></td>
+                    <td><a href="{% url 'delete_session' session.id %}">Delete</a></td>
+                    <td><a href="{% url 'training' session.id %}">Add Players</a></td>
+                </tr>
                 {% endfor %}
             </table>
         </div>

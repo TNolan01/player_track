@@ -155,7 +155,7 @@ I have decided against using Font Awesome or any other resource Font library, I 
 The only image I am using is the logo which I created I a desktop publishing application. I have given the application the name 'An Seo' which is the Irish / Gaelic for 'here'. Anyone of certain age who attended primary school in Ireland would be familiar with the phrase as response to a teacher calling your name to take a class attendance.
 
 <p align="center" width="100%"> 
-<img src="media/read_me/logo.png" alt="logo for website" width=""/>
+<img src="media/images/logo.png" alt="logo for website" width=""/>
 </p>
 
 
@@ -169,7 +169,7 @@ After experimentation the background colour has been left white.
 To break this white colour I have added two colours, a green and a yellow, to style some container and card items and create some divisions on the screen. 
 
 <p align="center" width="100%"> 
-<img src="media/read_me/color_scheme.png" alt="logo for website" width=""/>
+<img src="media/read_me/color_scheme.png" alt="color scheme" width=""/>
 </p>
 ​
 Any other colour on the screen is comes from a Bootstrap styled button. The only exception to this is the colour on the Player Dashboard section which signifies the players attendance record.

@@ -6,20 +6,20 @@
 		
 <div class="container-fluid">
 	{% for message in messages %}
-	<p>{{message}}</p>
+		<p>{{message}}</p>
 	{% endfor %}
 	
 	<br>
-		<form action="" method="POST">
+		<form action="#" method="POST">
 			<div class="container-fluid">
-				<div class"row">
+				<div class="row">
 					<div>
 						<input type="submit" class="btn btn-primary"> 
 						<a href="{% url 'match_dashboard' %}" class="btn btn-danger"> Cancel </a>
 					</div>
 				</div>
 				<br>
-				<div class"row">
+				<div class="row">
 					<div class="col-4 mb-0">
 						<h2>{{ match.match_date }}</h2>
 					</div>

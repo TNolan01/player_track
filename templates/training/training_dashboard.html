@@ -25,18 +25,16 @@
                             <th>Session Name</th>
                             <th>Update</th>
                             <th>Delete</th>
-                        
                         </tr>
                         
                         {% for session in sessions %} 
                         <tbody>
-                        <tr>
+                            <tr>
                                 <td>{{session.session_date}}</td>
                                 <td>{{session.session_name}}</td>
                                 <td><a href="{% url 'update_session' session.id %}" class="btn btn-primary" role="button" aria-pressed="true">Update</a></td>
                                 <td><a href="{% url 'delete_session' session.id %}" class="btn btn-danger" role="button" aria-pressed="true">Delete</a></td>
-                             
-                        </tr>
+                            </tr>
                         </tbody>
                         {% endfor %} 
                     </table>
