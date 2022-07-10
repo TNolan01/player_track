@@ -533,22 +533,30 @@ This happened
 ​
 <hr>
 ​
-TC002
+
 ​
 ​
 ## Validator Testing
 ​
 ### CSS
 ​
-Base Css
-​
-![Base CSS](docs/testing/base_css.JPG)
+CSS was tested using [W3C CSS Validation Tool](https://jigsaw.w3.org/css-validator/)
+​​<br>
+<p align="center" width="100%"> 
+<img src="media/testing/CSS.png" alt="CSS test image" width=""/>
+</p>
+<br>
+
 ​
 ### JavaScript
 ​
-Base JS
-​
-![Base JS](docs/testing/base_js.JPG)
+The script.js file was tested with [JSHint](https://jshint.com/) and showed no errors or warnings. 
+​<br>
+<p align="center" width="100%"> 
+<img src="media/testing/jshint.png" alt="JavaScript test image" width=""/>
+</p>
+<br>
+
 ​
 ### HTML
 ​

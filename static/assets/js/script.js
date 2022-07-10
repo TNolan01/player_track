@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 function calc() {
     var total = document.getElementById("player").innerHTML;
     for (let i = 0; i<=total; i++) {
@@ -14,13 +16,13 @@ function traffic_light() {
     for (let i = 0; i <=total; i++) {
         var num1 = document.getElementsByClassName("result")[i].innerHTML;
         if (num1 <=10 ){ 
-            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FF0000'} 
+            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FF0000';} 
         else if (num1 >=11 && num1 <= 50){
-            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FFA500'}
+            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FFA500';}
         else if (num1 >= 51 && num1 <=80){
-            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FFFF22'}
+            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#FFFF22';}
         else {
-            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#26A916'  
+            document.getElementsByClassName("traffic_light")[i].style.backgroundColor ='#26A916';  
         }
    
     }
@@ -36,17 +38,6 @@ function game_name(){
     } 
 }
 
-
-function check_box_count(){
-    var inputElems = document.getElementById("id_player"),
-    count = 0;
-    for (var i=0; i<inputElems.length; i++) {
-    if (inputElems[i].type === "checkbox" && inputElems[i].checked === true){
-        count++;
-       
-    }
-    console.log(count);
-}}
 
 
 
