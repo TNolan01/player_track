@@ -35,10 +35,10 @@
                         <td class="d-none d-sm-table-cell" >{{player.contact}}</td>
                         <td class="d-none d-sm-table-cell">{{player.date_of_birth}}</td>
                         <td class="d-none d-sm-table-cell">{{player.Age}}</td>
-                        <td><a href="{% url 'update_player' player.id %}" class="btn btn-primary" role="button" aria-pressed="true">Edit</a>
-                        <td><a href="{% url 'delete_player' player.id %}" class="btn btn-danger" role="button" aria-pressed="true">Delete</a>
-                        <td><a href="{% url 'training_list' player.id %}" class="btn btn-success" role="button" aria-pressed="true">Training List</a>
-                        <td><a href="{% url 'game_list' player.id %}" class="btn btn-success" role="button" aria-pressed="true">Game List</a>  
+                        <td><a href="{% url 'update_player' player.id %}" class="btn btn-primary" role="button" aria-pressed="true">Edit</a></td>
+                        <td><a href="{% url 'delete_player' player.id %}" class="btn btn-danger" role="button" aria-pressed="true">Delete</a></td>
+                        <td><a href="{% url 'training_list' player.id %}" class="btn btn-success" role="button" aria-pressed="true">Training List</a></td>
+                        <td><a href="{% url 'game_list' player.id %}" class="btn btn-success" role="button" aria-pressed="true">Game List</a></td> 
                     </tr>
                     </tbody>
                     {% endfor %}
@@ -67,7 +67,7 @@
                             <td class="attended_sessions">{{ p.count_sessions }}</td>
                             <td class="total_sessions">{{ all_sessions }}</td>
                             <td> <span class = "result">0</span></td>           
-                        <tr>
+                        </tr>
                         </tbody>
                         {% endfor %}
                         
