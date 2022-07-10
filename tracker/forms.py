@@ -13,25 +13,21 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 
-
-
-
 class PlayerForm(ModelForm):
     class Meta:
         model = Player
         fields = '__all__'
-        
-    date_of_birth = forms.DateField(widget=NumberInput(attrs={'type':'date'}))
-    
+       
+    date_of_birth = forms.DateField(widget=NumberInput(attrs={'type': 'date'}))
+   
     def clean_name(self, *args, **kwargs):
         name = self.cleaned_data.get('name')
         for instance in Player.objects.all():
             if instance.name == name:
                 raise forms.ValidationError('There is already a player named ' + name)
         return name
-    
-     
 
+    
 class CustomMMCF(forms.ModelMultipleChoiceField):
     def label_from_instance(self, player):
         return "%s" % player.name
@@ -40,12 +36,11 @@ class CustomMMCF(forms.ModelMultipleChoiceField):
 class SessionForm(forms.ModelForm):
     class Meta:
         model = Session
-        fields = ['session_date','session_name','player']
-    
+        fields = ['session_date', 'session_name', 'player']
     
         widgets = {
-        'session_date': DatePickerInput(attrs={'placeholder': 'YY-MM-DD'}, format ='%Y-%m-%d', options=None),
-        'session_name': forms.Textarea(attrs={'class': 'form-control', 'rows':'4', 'cols':'50'})
+            'session_date': DatePickerInput(attrs={'placeholder': 'YY-MM-DD'}, format='%Y-%m-%d', options=None),
+            'session_name': forms.Textarea(attrs={'class': 'form-control', 'rows': '4', 'cols': '50'})
         }
      
     player = CustomMMCF(
@@ -57,10 +52,10 @@ class SessionForm(forms.ModelForm):
 class MatchForm(forms.ModelForm):
     class Meta:
         model = Match
-        fields = ['match_date','match_details','venue']
+        fields = ['match_date', 'match_details', 'venue']
         widgets = {
             
-            'match_date': DatePickerInput(attrs={'placeholder': 'YY-MM-DD'}, format ='%Y-%m-%d', options=None)
+            'match_date': DatePickerInput(attrs={'placeholder': 'YY-MM-DD'}, format='%Y-%m-%d', options=None)
         }
     
     def clean_match_date(self, *args, **kwargs):
@@ -71,21 +66,20 @@ class MatchForm(forms.ModelForm):
             if instance.match_date == match_date:
                 raise ValidationError('There is already a game on that date')
         return match_date
-  
-        
-class SquadForm(forms.ModelForm): #add_player_to_match
+
+class SquadForm(forms.ModelForm):
     class Meta:
         model = Team_Selection
         fields = ['match', 'player', 'jersey_number', 'game_status']
         
         widgets = {
-        'jersey_number': forms.Select(attrs={'class': 'form-control','required':False}),
-        'game_status' : forms.Select(attrs={'class': 'form-control','required':False}), 
+            'jersey_number': forms.Select(attrs={'class': 'form-control', 'required': False}),
+            'game_status': forms.Select(attrs={'class': 'form-control', 'required': False}),
         }
 
         player = CustomMMCF(
-        queryset=Player.objects.all(),
-        widget=forms.Select(attrs={'class': 'form-select' })
+            queryset=Player.objects.all(),
+            widget=forms.Select(attrs={'class': 'form-select'})
         )
 
 
@@ -96,7 +90,7 @@ class CreateSquad(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(CreateSquad, self).__init__(*args, **kwargs)
         self.fields['player'].widget.attrs['class'] = 'form-select'
-        
+                
     def clean_jersey_number(self, *args, **kwargs):
         jersey_number = self.cleaned_data.get('jersey_number')
         if jersey_number is None:
@@ -124,3 +118,4 @@ class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+        
