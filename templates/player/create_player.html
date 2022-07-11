@@ -10,7 +10,7 @@
 <br>
 <div class="container-fluid">
     <h2>Create a new player</h2>
-    <form method="POST" action="">
+    <form method="POST" action="#">
     
         {% csrf_token %}
             {{ form.media }}
@@ -22,5 +22,6 @@
     </form>
 
 </div>
+<script> window.onload =  document.getElementById("id_date_of_birth").removeAttribute("placeholder"); </script>
 
 {% endblock %}

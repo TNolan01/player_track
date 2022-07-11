@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <br>
     <form method="post">{% csrf_token %}
-        <p><h5>Delete Player</h5></p>
+        <div><h5>Delete Player</h5></div>
         <hr>
         <p>Are you sure you want to delete the player named <strong>"{{ object }}"</strong>?</p>
         {{ form }}

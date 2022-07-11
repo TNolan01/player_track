@@ -4,8 +4,9 @@
 {% block content %}
 <div class="container-fluid">
     <br>
-    <form method="post">{% csrf_token %}
-        <p><h5>Delete Match</h5></p>
+    <form method="post">
+        {% csrf_token %}
+        <div><h5>Delete Match</h5></div>
         <hr>
         <p>Are you sure you want to delete the game dated <strong>"{{ object }}"</strong>?</p>
         <p>Game Details : <strong> {{object.match_details}}. </strong></p>

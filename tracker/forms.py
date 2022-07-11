@@ -18,7 +18,7 @@ class PlayerForm(ModelForm):
         model = Player
         fields = '__all__'
        
-    date_of_birth = forms.DateField(widget=NumberInput(attrs={'type': 'date'}))
+    date_of_birth = forms.DateField(widget=NumberInput({'type':'date'}))
    
     def clean_name(self, *args, **kwargs):
         name = self.cleaned_data.get('name')
@@ -27,6 +27,14 @@ class PlayerForm(ModelForm):
                 raise forms.ValidationError('There is already a player named ' + name)
         return name
 
+
+class PlayerEditForm(ModelForm):
+    class Meta:
+        model = Player
+        fields = '__all__'
+       
+    date_of_birth = forms.DateField(widget=NumberInput({'type':'date'}))
+   
     
 class CustomMMCF(forms.ModelMultipleChoiceField):
     def label_from_instance(self, player):

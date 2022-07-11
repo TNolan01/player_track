@@ -40,7 +40,5 @@ function game_name(){
 
 
 
-
-
     
   

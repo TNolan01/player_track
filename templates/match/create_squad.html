@@ -36,8 +36,8 @@
 				{{ hidden }}
 			{% endfor %}
 			
-			<div class="container-fluid" id="player_formset">
-				<div class="row" id="selectedPlayer"><span class="player_name">Name</span></div>
+			<div class="container-fluid player_formset">
+				<div class="row selectedPlayer"><span class="player_name">Name</span></div>
 				<div class="row" >
 					<div class="col-4 mb-0" onchange="game_name()" >
 						{{ form.player|as_crispy_field }} 

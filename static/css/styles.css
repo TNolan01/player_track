@@ -48,7 +48,7 @@ table {
 
 
 /*Target the selected player name on formsets on the create_squad.html*/
-#selectedPlayer {
+.selectedPlayer {
     font-weight: bolder;
     color: rgba(13, 9, 230, 0.788);
 }

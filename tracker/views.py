@@ -166,7 +166,7 @@ class PlayerCreateView(SuccessMessageMixin, CreateView):
 
 class PlayerUpdateView(SuccessMessageMixin, UpdateView):
     model = Player
-    form_class = PlayerForm
+    form_class = PlayerEditForm
     template_name = 'player/update_player.html'
     success_url = reverse_lazy('player_dashboard')
     success_message = "Player data updated successfully"

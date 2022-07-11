@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <br>
     <form method="post">{% csrf_token %}
-        <p><h5>Delete Training Session</h5></p>
+        <div><h5>Delete Training Session</h5></div>
         <hr>
         <p>Are you sure you want to training session dated <strong>"{{ object }}"</strong>?</p>
         <p>Training Details : <strong>{{ object.session_name }}.</strong> </p>
