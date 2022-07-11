@@ -23,9 +23,12 @@
 
 <br>
 
-[Site display on different screens](/media/read_me/responsive_screen_shot.png)
+<p align="center" width="100%"> 
+<img src="media/read_me/multi_screen.png" alt="screen shots of site" width=""/>
+</p>
 
-<img src="media/read_me/responsive_screen_shot.png" alt="screen shots of site" width=""/>
+
+
 ​
 
 ## Contents
@@ -438,7 +441,7 @@ Create a new fixture.
 </p>
 <br>
 
-<li>The team selection form displays the the game information, date and opposition. The admin selects a player from the drop down list, selects if the player is 'starting' or a 'sub'. The manager also selects the players jersey number which is between 1 and 25. Once a player is selected, their name appears on the formset over the dropdown menu. This is done via JavaScript. The name displays in blue.</li>
+<li>The team selection form displays the the game information, date and opposition. The admin selects a player from the drop down list, selects if the player is 'starting' or a 'sub'. The manager also selects the players jersey number which is between 1 and 25. Once a player is selected, their name appears on the formset over the dropdown menu. This is done via JavaScript. The name displays in <span style="color:rgba(13, 9, 230, 0.788); font-weight:bold">blue</span>.</li>
 
 <br>
 <p align="center" width="100%"> 
@@ -486,20 +489,28 @@ Create a new fixture.
 </p>
 <br>
 
+<span style="color:#56a832; font-weight:bold; font-size:16px">Create Club</span>
 
+<li>The admin can enter the team of club name here and have that name displayed on the Main Dashboard</li>
 
-
+<br>
+<p align="center" width="100%"> 
+<img src="media/read_me/create_club.png" alt="club name screen" width=""/>
+</p>
+<br>
 </ul>
 
 <br>
 
 ### Future Features
 
-- An In-Play feature which would allow the manager enter scores in real time. This would display 'live' information on the match for the memebers with access to the the Main Dashboard so they could get up to date information on their childs games if they could attend. This would incorporate a timer or clock.
+- An In-Play feature which would allow the manager enter scores in real time. This would display 'live' information on the match for the members with access to the the Main Dashboard so they could get up to date information on their childs games if they could not attend. This would incorporate a timer or clock. The Team_Selection Model has goals, points and notes fields included in it for this future feature. The admin or coach would update the information from 'pitch side' via phone or tablet.
 
 - Email notification for registered members of the application.
 
 - Make a printable team sheet.
+
+- Ability for the administrator to put up a team message on the Main Dashboard.
 
 [Back to content](#contents)
 ​
