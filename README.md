@@ -185,6 +185,8 @@ Any other colour on the screen is comes from a Bootstrap styled button. The only
 
 The design, development and testing of this application were tracked through a project opened in GitHub and associated with the application repository. The Project and Kanban board are located [here](https://github.com/TNolan01/player_track/projects/1).
 
+The Kanban board in the GitHub repository was used to track issues raised during testing and development.
+
 <br>
 
 <p align="center" width="100%"> 
