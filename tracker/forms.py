@@ -65,6 +65,7 @@ class MatchForm(forms.ModelForm):
     class Meta:
         model = Match
         fields = ['match_date', 'match_details', 'venue']
+
         widgets = {
 
             'match_date': DatePickerInput(attrs={'placeholder': 'YY-MM-DD'}, format='%Y-%m-%d', options=None)

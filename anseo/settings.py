@@ -83,7 +83,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'anseo.wsgi.application'
 
-CSRF_TRUSTED_ORIGINS = ['an-seo.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['.an-seo.herokuapp.com']
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
