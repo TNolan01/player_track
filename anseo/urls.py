@@ -22,4 +22,4 @@ urlpatterns = [
     path('',include('tracker.urls'))
 ]
 
-handler404= 'tracker.views.error_403'
+handler403= 'tracker.views.error_403'
