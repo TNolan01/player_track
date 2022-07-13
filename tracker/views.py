@@ -360,3 +360,8 @@ def team_sheet(request, pk):
                'squad': squad
                }
     return render(request, 'match/team_sheet.html', context)
+
+
+# Error Code Pages
+def error_403(request,exception):
+    return render(request, '403.html')
