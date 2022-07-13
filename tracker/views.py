@@ -364,4 +364,4 @@ def team_sheet(request, pk):
 
 # Error Code Pages
 def error_403(request,exception):
-    return render(request, '403.html')
+    return render(request, '403_csrf.html')
