@@ -49,7 +49,7 @@ def login_page(request):
         if user is not None:
             login(request, user)
             messages.success(request, 'You have successfully logged in')
-            return render('dashboard')
+            return redirect('dashboard')
         else:
             messages.info(request, 'Username and/or password are incorrect')
     context = {}
