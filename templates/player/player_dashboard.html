@@ -3,6 +3,7 @@
 {% block content %}
 
 {% include 'main/stats.html' %}
+<script async src="{% static 'assets/js/script.js' %}"></script> 
 
 <!--html for Player Dashboard to display all player related options -->
 <br >
@@ -67,7 +68,7 @@
                             <td> {{ p.name }} </td>
                             <td class="attended_sessions">{{ p.count_sessions }}</td>
                             <td class="total_sessions">{{ all_sessions }}</td>
-                            <td> <span class = "result">0</span></td> <!--'calc' script calculates players percentage attendance-->          
+                            <td> <span class = "result">0</span></td> <!--The script calculates players percentage attendance-->          
                         </tr>
                         </tbody>
                         {% endfor %}
@@ -81,7 +82,10 @@
     </div>
 </div>
 
-<script> window.onload = calc(); </script>
-<script> window.onload = traffic_light(); </script>
+
+<script> 
+    document.addEventListener("DOMContentLoaded",traffic_light())
+</script>
+
 
 {% endblock %}

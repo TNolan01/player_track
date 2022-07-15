@@ -42,7 +42,7 @@
                     <td class="attended_sessions">{{ item.count_sessions }}</td> 
                     <td class="total_sessions">{{ all_sessions }}</td>
                     <td> <span class = "result">0</span></td>   
-                </tr> <!--calc script which works out player attendance percentage -->  
+                </tr> <!--the script which works out player attendance percentage -->  
                 {% endfor %}
              </table>
         </div>
@@ -52,7 +52,7 @@
 
 </div>   
   
-<script> window.onload = calc(); </script>
-<script> window.onload = traffic_light(); </script> 
-
+<script> 
+    document.addEventListener("DOMContentLoaded",traffic_light())
+</script>
 {% endblock %}
