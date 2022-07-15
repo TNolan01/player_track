@@ -19,7 +19,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from .decorators import *
-from django.views.decorators.csrf import csrf_exempt
 
 
 # main related views
@@ -64,7 +63,6 @@ def logout_page(request):
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin', 'coaching', 'visitor'])
-@csrf_exempt
 def home(request):
     all_players = Player.objects.all().count()
     all_sessions = Session.objects.all().count()
