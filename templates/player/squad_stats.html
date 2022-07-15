@@ -1,5 +1,5 @@
 {% extends 'main/main.html' %}
-
+{% load static %}
 {% block content %}
 
 <!--html which opens via 'squad attendance list' button on Player Dashboard -->
@@ -15,7 +15,7 @@
         <div class="container-fluid text-center">
             <div class="row">
                 <div class="col">
-                    <h4> Number of players in squad :</h4>
+                    <h4> Squad size:</h4>
                 </div>
                 <div class="col">
                     <h4 id="player">{{all_players}}</h4>
@@ -36,13 +36,13 @@
                     <th>%</th>
                 
                 </tr>
-                {% for item in session_total %}
-                <tr class="traffic_light">  <!--traffic_light script to colour player 'row' depending on attendance-->
+                {% for item in session_total %}<!--traffic_light script to colour player 'row' depending on attendance -->
+                <tr class="traffic_light">  
                     <td>{{ item.name }}</td> 
                     <td class="attended_sessions">{{ item.count_sessions }}</td> 
                     <td class="total_sessions">{{ all_sessions }}</td>
-                    <td> <span class = "result">0</span></td> <!--calc script which works out player attendance percentage-->    
-                </tr>
+                    <td> <span class = "result">0</span></td>   
+                </tr> <!--calc script which works out player attendance percentage -->  
                 {% endfor %}
              </table>
         </div>
@@ -51,7 +51,7 @@
     </form>
 
 </div>   
-    
+  
 <script> window.onload = calc(); </script>
 <script> window.onload = traffic_light(); </script> 
 

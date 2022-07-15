@@ -24,4 +24,5 @@
 <span style="color:#ebd80c; font-weight:bold; font-size:14px">Further Investigation Of Issue.</span>
 
 - Investigation of similiar issues suggested adding CSRF specific settings the settings.py But of these related to Django 4+ and not Django 3 as I am using. Having experimented with these settings I found that they had no impact on the issue.    
+- Opening the Login Page through Google's Developer Tools showed that the form had created a CSRF token.
 
