@@ -3,17 +3,17 @@
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
-{{ form.media }}
 
 {% block content %}
 
+<!--html carrying the form to create a new training session -->
 <br>
 <div class="container-fluid" id="session_form">
     <h4>Create a new session</h4>
     <form method="POST" action="#">
         
         {% csrf_token %}
-        {{ form.media }}
+        {{ form.media }} <!--required for date picker-->
         {% bootstrap_form form %}  
         <hr>
 

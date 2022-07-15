@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-		
+<!--html page to carry the form for the creation of a squad, adding players to a match -->	
 <div class="container-fluid">
 	{% for message in messages %}
 		<p>{{message}}</p>
@@ -37,7 +37,7 @@
 			{% endfor %}
 			
 			<div class="container-fluid player_formset">
-				<div class="row selectedPlayer"><span class="player_name">Name</span></div>
+				<div class="row selectedPlayer"><span class="player_name">Name</span></div> <!--Insert select players name into a span-->
 				<div class="row" >
 					<div class="col-4 mb-0" onchange="game_name()" >
 						{{ form.player|as_crispy_field }} 
@@ -61,7 +61,7 @@
 		</form>
 		
 </div>
-<script> window.onload = game_name(); </script>
+<script> window.onload = game_name(); </script>  <!--script to put the selected players name over the dropbox to select player as visual aid-->
 
 
 {% endblock %} 

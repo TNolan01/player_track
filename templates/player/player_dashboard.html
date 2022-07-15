@@ -4,6 +4,7 @@
 
 {% include 'main/stats.html' %}
 
+<!--html for Player Dashboard to display all player related options -->
 <br >
 <div class="container-fluid" id="dashboardHeader"> <h2>Player Dashboard</h2> </div>
 
@@ -47,7 +48,7 @@
         </div>
         <div>
             <div class="card card-body">
-                <a class="btn btn-secondary btn-block" href="{% url 'squad_stats' %}">Squad Attendance List</a>
+                <a class="btn btn-secondary btn-block" href="{% url 'squad_stats' %}">Squad Attendance List</a> <!--button which shows all players attendance in order of highest to lowest-->
             </div>
                 <hr>
                 <h4>Attendance Record</h4>
@@ -62,11 +63,11 @@
                         
                         {% for p  in session_total %}
                         <tbody>
-                        <tr class="traffic_light">
+                        <tr class="traffic_light"> <!--'traffic_light' script colours the row for player info a particular color depending on attendance percentage-->
                             <td> {{ p.name }} </td>
                             <td class="attended_sessions">{{ p.count_sessions }}</td>
                             <td class="total_sessions">{{ all_sessions }}</td>
-                            <td> <span class = "result">0</span></td>           
+                            <td> <span class = "result">0</span></td> <!--'calc' script calculates players percentage attendance-->          
                         </tr>
                         </tbody>
                         {% endfor %}
@@ -74,7 +75,7 @@
                     </table>
                 </div>
             <div class="card card-body">
-                <a class="btn btn-secondary btn-block" href="{% url 'squad_stats' %}">Squad Attendance List</a>
+                <a class="btn btn-secondary btn-block" href="{% url 'squad_stats' %}">Squad Attendance List</a> <!--shows all players attendance in order of highest to lowest, same as button above-->
             </div>
         </div>
     </div>

@@ -7,12 +7,13 @@
 
 {% block content %}
 
+<!--html for the update match details form, changing date, venue or details of created game -->
 <br>
 <div class="container-fluid">
     <div class="form-group">
         <form method="POST" action="#">
             {% csrf_token %}
-                {{ form.media }}
+            {{ form.media }} <!--required for datepicker-->
             {% bootstrap_form form %}  
                 
             <input type="submit" class="btn btn-primary"> 

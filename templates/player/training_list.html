@@ -1,7 +1,8 @@
 {% extends 'main/main.html' %}
 
-
 {% block content %}
+
+<!--html page to display all training sessions attended by a particular player instance -->
 <div class="container-fluid">
 	<div class="row">
 		<div class="col">
@@ -11,7 +12,7 @@
 						<h5 class="card-title">Total Sessions</h5>
 					</div>
 					<div class="card-body">
-						<h3 class="card-title">{{session_total}}</h3>
+						<h3 class="card-title">{{session_total}}</h3> <!--total overall sessions-->
 					</div>
 				</div>
 			</div>
@@ -24,7 +25,7 @@
 						<h5 class="card-title">Attended Sessions</h5>
 					</div>
 					<div class="card-body">
-						<h3 class="card-title">{{training_total}}</h3>
+						<h3 class="card-title">{{training_total}}</h3> <!--sessions attended by player instance-->
 					</div>
 				</div>
 			</div>
@@ -37,7 +38,7 @@
 						<h5 class="card-title">Attendance Percentage</h5>
 					</div>
 					<div class="card-body">
-						<h3 class="card-title">{{attendance}}%</h3>
+						<h3 class="card-title">{{attendance}}%</h3> <!--players percentage attendance-->
 					</div>
 				</div>
 			</div>
@@ -57,7 +58,7 @@
 			<th>Session Details</th>
 		</tr>
 		
-		{% for t in training %}
+		{% for t in training %}  <!--details of players training history-->
 		<tbody>
 			<tr>
 				<td>{{ t.session_date }}</td> 

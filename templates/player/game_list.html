@@ -1,7 +1,8 @@
 {% extends 'main/main.html' %}
 
-
 {% block content %}
+
+<!--html page to display all games attended by a particular player instance -->
 <div class="container-fluid">
 	<div class="row">
 		<div class="col">
@@ -11,7 +12,7 @@
 						<h5 class="card-title">Total Matches</h5>
 					</div>
 					<div class="card-body">
-						<h3 class="card-title">{{total_games}}</h3>
+						<h3 class="card-title">{{total_games}}</h3> <!-- overall total games-->
 					</div>
 				</div>
 			</div>
@@ -24,7 +25,7 @@
 						<h5 class="card-title">Attended Games</h5>
 					</div>
 					<div class="card-body">
-						<h3 class="card-title">{{played}}</h3>
+						<h3 class="card-title">{{played}}</h3> <!--total games this player has played -->
 					</div>
 				</div>
 			</div>
@@ -37,7 +38,7 @@
 						<h5 class="card-title">Attendance Percentage</h5>
 					</div>
 					<div class="card-body">
-						<h3 class="card-title">{{played_percentage}}%</h3>
+						<h3 class="card-title">{{played_percentage}}%</h3> <!--this players overall games played percentage -->
 					</div>
 				</div>
 			</div>
@@ -64,7 +65,7 @@
 				<th>Jersey #</th>
 			</tr>
 			
-			{% for p in games_played %}
+			{% for p in games_played %} <!--details of the games played-->
 			<tbody>
 			<tr>
 				<td>{{ p.match.match_date }}</td> 

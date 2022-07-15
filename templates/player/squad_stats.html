@@ -2,7 +2,7 @@
 
 {% block content %}
 
-
+<!--html which opens via 'squad attendance list' button on Player Dashboard -->
 <div class="container-fluid">
     <form method="POST" action="#">
         {% csrf_token %}
@@ -37,11 +37,11 @@
                 
                 </tr>
                 {% for item in session_total %}
-                <tr class="traffic_light">
+                <tr class="traffic_light">  <!--traffic_light script to colour player 'row' depending on attendance-->
                     <td>{{ item.name }}</td> 
                     <td class="attended_sessions">{{ item.count_sessions }}</td> 
                     <td class="total_sessions">{{ all_sessions }}</td>
-                    <td> <span class = "result">0</span></td>     
+                    <td> <span class = "result">0</span></td> <!--calc script which works out player attendance percentage-->    
                 </tr>
                 {% endfor %}
              </table>

@@ -3,17 +3,17 @@
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
-{{ form.media }}
 
 {% block content %}
 
+<!--html for the form to update the details of particular training session instance -->
 <br>
 <div class="container-fluid">
     <div class="form-group">
         <form method="POST" action="#">
           
           {% csrf_token %}
-          {{ form.media }}
+          {{ form.media }} <!--required for datepicker-->
           {% bootstrap_form form %}  
           <br>
           <hr>

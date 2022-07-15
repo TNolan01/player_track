@@ -1,5 +1,6 @@
 {% load static %}
 
+<!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <img src ="https://res.cloudinary.com/dd7koyxkj/image/upload/v1654352273/media/logo_umu1zk.png" alt="image of logo">
@@ -11,7 +12,7 @@
                   <li class="nav-item">
                       <a class="nav-link active" aria-current="page" href="{% url 'dashboard' %}">Dashboard</a>
                   </li>
-                  {% if request.user.is_superuser %}
+                  {% if request.user.is_superuser %}  <!--If statement to grant admin access to full dashboard options-->
                   <li class="nav-item">
                       <a class="nav-link" href="{% url 'player_dashboard' %} ">Players</a>
                   </li>
@@ -25,14 +26,14 @@
                       <a class="nav-link" href="{% url 'create_club' %}">Create Club</a>
                   </li>
                     {% endif %}
-                    {% if request.user.groups.all.0.name == 'coaching' %}
+                    {% if request.user.groups.all.0.name == 'coaching' %} <!--If statement to grant members of coaching group access to training-->
                   <li class="nav-item">
                       <a class="nav-link" href="{% url 'training_dashboard' %}">Training</a>
                   </li>
                     {% endif %}
               </ul>
           </div>
-          <span class="logged-user">User: {{request.user}}</span>
+          <span class="logged-user">User: {{request.user}}</span>  <!--display current user login name-->
           <span class="log-out-link"><a href="{% url 'logout' %}">Logout</a></span>
           
     </div>

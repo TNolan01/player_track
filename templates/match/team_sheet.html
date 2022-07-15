@@ -6,13 +6,14 @@
 
 {% block content %}
 
+<!-- this html pages displays all team selection data relating to a particular match instance-->
     <div class="container-fluid">
         <div class="col text-center">
             <h1>Team Sheet</h1>
         </div>
         <hr>
         <div class="container-fluid">
-            {% for object in match_data %} 
+            {% for object in match_data %} <!--game details, date and venue displayed here -->
                    
               <div class="row">
                   <div class="col-sm-3">
@@ -63,7 +64,7 @@
             </thead>
             
             <tbody>
-                {% for x in squad %} 
+                {% for x in squad %} <!--details of players selected for particular game instance-->
                 <tr>
                     {% for obj in x.player.all %}
                     <td>{{ obj.name }}</td>
@@ -73,7 +74,7 @@
                 </tr>
             </tbody>
                 {% empty %}
-                <li>No team selection made yet.</li>
+                <li>No team selection made yet.</li>  <!--message displayed if there is no players selected for game yet-->
                 {% endfor %}
         </table>
 

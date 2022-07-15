@@ -3,10 +3,10 @@
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
-{{ form.media }}
 
 {% block content %}
 
+<!--html to display all training sessions with ability to edit and update-->
 <br>
 <div class="container-fluid">
     <div class="row">
@@ -35,7 +35,7 @@
         </tr>
         </tbody>
         {% empty %}
-        <li>No fixtures arranged yet.</li>
+        <li>No fixtures arranged yet.</li>  <!--displays if there are no training schedules created-->
         {% endfor %} 
     </table>
 
