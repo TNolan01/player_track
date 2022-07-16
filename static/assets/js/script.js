@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 
-function traffic_light() {
+function trafficLight() {
     var total = document.getElementById("player").innerHTML;
     for (let i = 0; i<=total; i++) {
     var num1 = document.getElementsByClassName("attended_sessions")[i].innerHTML;
@@ -19,7 +19,7 @@ function traffic_light() {
 }
 
 
-function game_name(){
+function gameName() {
     var forms = document.querySelector("#id_team_selection_set-TOTAL_FORMS").value;
     for (let i = 0; i <= forms; i++){
     var target = document.getElementsByClassName("form-select selectmultiple form-control")[i];

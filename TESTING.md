@@ -1,15 +1,44 @@
 # An Seo
 
 ## Manual Testing
-### Testing Phase 1 
-
+<span style="color:#56a832; font-weight:bold; font-size:20px">Testing of USER STORIES</span>
 <p>I carried out manual testing as follows:</p>
- 
 
 <p align="center" width="100%"> 
-<img src="media/read_me/multi_screen.png" alt="screen shots of site" width=""/>
+<img src="media/testing/Test1.png" alt="test image 1" width=""/>
+</p>
+ 
+<p align="center" width="100%"> 
+<img src="media/testing/Test2.png" alt="test image 2" width=""/>
 </p>
 
+<p align="center" width="100%"> 
+<img src="media/testing/Test3.png" alt="test image 3" width=""/>
+</p>
+
+<p align="center" width="100%"> 
+<img src="media/testing/Test4.png" alt="test image 4" width=""/>
+</p>
+
+<p align="center" width="100%"> 
+<img src="media/testing/Test5.png" alt="test image 5" width=""/>
+</p>
+
+<p align="center" width="100%"> 
+<img src="media/testing/Test6.png" alt="test image 6" width=""/>
+</p>
+
+<p align="center" width="100%"> 
+<img src="media/testing/Test7.png" alt="test image 7" width=""/>
+</p>
+
+<p align="center" width="100%"> 
+<img src="media/testing/Test8.png" alt="test image 8" width=""/>
+</p>
+
+<p align="center" width="100%"> 
+<img src="media/testing/Test8.png" alt="test image 9" width=""/>
+</p>
 
 <span style="color:#56a832; font-weight:bold; font-size:16px">HTTP vs. HTTPS Issue</span>
 <p>During the testing I had discovered that when I entered the name of the application into the Microsoft Edge browser as <span style="color:orange; font-weight:bold;">'an-seo.herokuapp.com'</span> without prefacing it with 'http:// or https://' then the application was opening as http://an-seo.herokuapp.com in the Edge browser. The Login screen was rendering correctly but if any user attempted login the application would get a 403 Error relating to CSRF issue as soon as the user clicked the Login button.</p>

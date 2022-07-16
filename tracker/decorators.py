@@ -1,4 +1,4 @@
-from django.http import HttpResponse 
+from django.http import HttpResponse
 from django.shortcuts import redirect
 
 
@@ -24,4 +24,3 @@ def allowed_users(allowed_roles=[]):
                 return redirect('no_access')
         return wrapper_func
     return decorator
-
