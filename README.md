@@ -5,6 +5,10 @@
 <br>
 [This is an external link to An Seo](https://an-seo.herokuapp.com/)
 
+For this purposes I have listed login at this link : [User Test Information](#user-test-information)
+
+<br>
+
 <span style="color:#56a832; font-weight:bold; font-size:16px">Origins of the application.</span>
 <p> The initial inspiration for the application was formed while I was assisting with the coaching of my daughters Camogie team. I became aware that the manager was using a hand written list to record player attendance.</p>
 <p>I initially assumed that this list was acting as some form of track and trace to comply with Covid regulations. When I asked the manager about the purpose of the list, he told me he was recording player attendance at every training session in to help him fairly pick his teams. The information would also serve as record which could easily settle any little disputes that parents or guardians may have about their child's game time.</p>
@@ -46,6 +50,7 @@
     - [Design Choices](#design-choices)
       - [Fonts](#fonts)
       - [Colours](#colours)
+      - [Images](#images)
       - [Agile Methodology](#agile-methodology)
   - [Wireframes](#wireframes)
     - [Site Layout](#site-layout)
@@ -57,13 +62,12 @@
   - [Features](#features)
     - [Implemented Features](#implemented-features)
     - [Future Features](#future-features)
-    - [Redundant features](#redundant-features)
   - [Testing](#testing)
+    - [User Test Information](#user-test-information)
   - [Deployment](#deployment)
-    - [Local Deployment](#local-deployment)
-    - [Deployment to Github](#deployment-to-)
+    - [Final Deployment](#final-deployment)
+    - [Cloning](#cloning)
   - [Credits](#credits)
-    - [Images](#images)
     - [Image editing](#image-editing)
     - [Code ideas](#code-ideas)
   
@@ -625,11 +629,39 @@ I have decided not to alter the relevant lines to fit into 79-character restrict
 [Back to content](#contents)
 ​
 
+## User Test Information 
+
+In conjuction with creating a new 'visitor' login the following login information can be used to test the site.
+<br>
+
+
+<span style="color:#edb80c; font-weight:bold; font-size:16px">Administrator:</span>
+- login : 'admin' 
+- password : 'player1' 
+<br>
+
+<span style="color:#edb80c; font-weight:bold; font-size:16px">Coach:</span>
+- login : 'Coach' 
+- password : 'Train123'
+<br>
+
+<span style="color:#edb80c; font-weight:bold; font-size:16px">Visitor:</span>
+- login : 'GaryBusey' 
+- password : 'Play2020'
+<br>
+
+<span style="color:#edb80c; font-weight:bold; font-size:16px">Visitor:</span>
+- login : 'Lisa_Lopez' 
+- password : 'Apple2022'
+
+<br>
+
 ---
 ​
-## Deployment
+## Deployments
 ​
 ### Deployment:
+
 <br>
 
 Deployment of this project is carried out with Heroku, https://www.heroku.com. The deployment procedure is a follows.  
@@ -667,7 +699,7 @@ Deployment of this project is carried out with Heroku, https://www.heroku.com. T
 </ol>
 <br>
 
-### Final Deployment
+## Final Deployment
 <ul> 
 <li>Create a runtime.txt file - 'python 3.8.13'</li>
 <li>Run the command - 'web: gunicorn "name of project".wsgi'</li>
@@ -679,7 +711,7 @@ Deployment of this project is carried out with Heroku, https://www.heroku.com. T
 [Back to Contents](#contents) 
 <br>
 
-### Cloning:
+## Cloning:
 
 [Click here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 

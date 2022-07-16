@@ -125,6 +125,11 @@ class TrainingDeleteView(SuccessMessageMixin, DeleteView):
     template_name = 'training/delete_session.html'
     success_url = reverse_lazy('training_dashboard')
     success_message = "Training session deleted"
+    
+    def delete(self, request, *args, **kwargs):
+        obj = self.get_object()
+        messages.success(self.request, self.success_message % obj.__dict__)
+        return super(TrainingDeleteView, self).delete(request, *args, **kwargs)
 
 
 class TrainingListView(ListView):
@@ -183,6 +188,11 @@ class PlayerDeleteView(SuccessMessageMixin, DeleteView):
     template_name = 'player/delete_player.html'
     success_url = reverse_lazy('player_dashboard')
     success_message = "The player has been deleted successfully"
+    
+    def delete(self, request, *args, **kwargs):
+        obj = self.get_object()
+        messages.success(self.request, self.success_message % obj.__dict__)
+        return super(PlayerDeleteView, self).delete(request, *args, **kwargs)
 
 
 # This returns the training attendance history for each individual player, part of player section.
@@ -296,6 +306,10 @@ class MatchDeleteView(SuccessMessageMixin, DeleteView):
     success_url = reverse_lazy('match_dashboard')
     success_message = "Match data has been deleted successfully"
 
+    def delete(self, request, *args, **kwargs):
+        obj = self.get_object()
+        messages.success(self.request, self.success_message % obj.__dict__)
+        return super(MatchDeleteView, self).delete(request, *args, **kwargs)
 
 class MatchListView(ListView):
     model = Match
@@ -321,29 +335,12 @@ def create_squad(request, pk):
     return render(request, 'match/create_squad.html', context)
 
 
-@login_required(login_url='login')
-def pick_the_team(request, pk):
-    MatchFormSet = inlineformset_factory(Match, Team_Selection, form=CreateSquad, fields=('player', 'jersey_number', 'game_status'), extra=20, max_num=25)
-    match_data = Team_Selection.objects.filter(match=pk)
-    players = Player.objects.all()
-    if request.method == 'POST':
-        formset = MatchFormSet(request.POST, instance=match)
-        if formset.is_valid():
-            formset.save()
-            return redirect('match_dashboard')
-    context = {'formset': formset,
-               'match': match,
-               'players': players
-               }
-    return render(request, 'match/create_squad.html', context)
-
-
 # Clubname
 class ClubCreateView(UpdateView):
     model = Club
     form_class = ClubForm
     template_name = 'main/create_club.html'
-    success_url = reverse_lazy('match_dashboard')
+    success_url = reverse_lazy('dashboard')
 
     def get_object(self, queryset=None):
         obj = Club.objects.filter()[0]
