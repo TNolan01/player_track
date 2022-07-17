@@ -532,6 +532,10 @@ Create a new fixture.
 
 - Introduction of a 'color picker' or something to allow the administrator select two colors from a menu that would be used to style elements of the screen. This would allow a club to personalize the screens in club colors in place of the <span style="color:#ebd80c; font-weight:bold;">yellow</span> and <span style="color:#56a832; font-weight:bold;">green</span> which I have used.
 
+- Create validation on the match creation form to check for duplicate players and jersey numbers.
+
+- Make screen messages fade out.
+
 [Back to content](#contents)
 ​
 

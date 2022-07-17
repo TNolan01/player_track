@@ -39,7 +39,7 @@
 			<div class="container-fluid player_formset">
 				<div class="row selectedPlayer"><span class="player_name">Name</span></div> <!--Insert select players name into a span-->
 				<div class="row" >
-					<div class="col-4 mb-0" onchange="game_name()" >
+					<div class="col-4 mb-0" onchange="gameName()" >
 						{{ form.player|as_crispy_field }} 
 					</div>
 					<div class="col-3 mb-0">
@@ -61,7 +61,9 @@
 		</form>
 		
 </div>
-<script> window.onload = gameName(); </script>  <!--script to put the selected players name over the dropbox to select player as visual aid-->
-
+<!-- script to put the selected players name over the dropbox to select player as visual aid-->
+<script> 
+	document.addEventListener("DOMContentLoaded",gameName())
+</script>
 
 {% endblock %} 
