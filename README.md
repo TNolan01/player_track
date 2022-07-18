@@ -1,6 +1,11 @@
 # An Seo
 ​
+<p align="center" width="100%"> 
+<img src="media/images/logo.png" alt="logo" width=""/>
+</p>
+
 <span style="font-weight:bold; font-size:16px">
+
 [An Seo](https://an-seo.herokuapp.com/) is a web-based application which allows managers and coaches to track the attendance of their players at training and for matches. The application is primarily designed for underage and amateur sports.</span> 
 <br>
 [This is an external link to An Seo](https://an-seo.herokuapp.com/)
