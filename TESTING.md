@@ -242,3 +242,19 @@ I generated a Favicon logo, uploading the image file to Cloudinary, as static st
 <p align="center" width="100%"> 
 <img src="media/testing/game_date_past.png" alt="game duplication" width=""/>
 </p>
+
+<p align="center" width="100%"> 
+<img src="media/testing/Test22.png" alt="test image 22" width=""/>
+</p>
+
+<p align="center" width="100%"> 
+<img src="media/testing/incorrect_password.png" alt="incorrect password" width=""/>
+</p>
+
+<p align="center" width="100%"> 
+<img src="media/testing/Test23.png" alt="test image 23" width=""/>
+</p>
+
+<p align="center" width="100%"> 
+<img src="media/testing/account_sucess.png" alt="account success" width=""/>
+</p>
